@@ -92,13 +92,6 @@ export default function Home() {
           A selection of software engineering projects demonstrating backend
           development, system design, and real-world problem solving.
         </p>
-
-        <Link
-          href="/projects"
-          className="inline-flex items-center text-indigo-600 hover:underline font-medium"
-        >
-          Explore all projects →
-        </Link>
       </section>
     </>
   );

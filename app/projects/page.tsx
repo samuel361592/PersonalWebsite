@@ -11,6 +11,12 @@ const projects: Project[] = [
       "Personal portfolio website built with Next.js and deployed on Vercel.",
     tech: ["Next.js", "Tailwind CSS", "Vercel"],
   },
+  {
+    title: "Todo CLI",
+    description:
+      "A command-line todo application written in Go, migrating storage from JSON to SQLite to ensure persistent data handling and clean git hygiene.",
+    tech: ["Go", "SQLite"],
+  },
 ];
 
 export default function ProjectsPage() {
@@ -22,10 +28,12 @@ export default function ProjectsPage() {
         {projects.map((p) => (
           <div
             key={p.title}
-            className="border rounded-lg p-6 hover:shadow-md transition"
+            className="border rounded-lg p-6 hover:shadow-md transition flex flex-col"
           >
-            <h2 className="text-xl font-semibold mb-2">{p.title}</h2>
-            <p className="text-gray-600 mb-4">{p.description}</p>
+            <div className="flex-1">
+              <h2 className="text-xl font-semibold mb-2">{p.title}</h2>
+              <p className="text-gray-600 mb-4">{p.description}</p>
+            </div>
 
             <div className="flex flex-wrap gap-2">
               {p.tech.map((t) => (
