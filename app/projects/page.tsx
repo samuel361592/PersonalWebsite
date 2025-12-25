@@ -6,7 +6,7 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Samuel Portfolio",
+    title: "Personal Website",
     description:
       "Personal portfolio website built with Next.js and deployed on Vercel.",
     tech: ["Next.js", "Tailwind CSS", "Vercel"],

@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 
 function Footer() {
   return (
-    <footer className="border-t border-gray-200 mt-32">
+    <footer className="border-t border-gray-200 mt-16">
       <div className="max-w-6xl mx-auto px-6 py-8 text-sm text-gray-500 flex justify-between">
         <span>© {new Date().getFullYear()} Samuel</span>
         <span>Built with Next.js</span>
@@ -22,7 +22,8 @@ export default function RootLayout({
       <body className="bg-white text-gray-900">
         <Navbar />
 
-        <main className="max-w-5xl mx-auto px-6 py-16">
+        {/* Main should NOT add top padding */}
+        <main className="max-w-5xl mx-auto px-6">
           {children}
         </main>
 
