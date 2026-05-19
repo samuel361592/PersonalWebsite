@@ -1,362 +1,399 @@
 import Link from "next/link";
-import { Github, Linkedin, Mail } from "lucide-react";
+import {
+  BriefcaseBusiness,
+  Download,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+} from "lucide-react";
+
+const profileStats = [
+  { label: "Current focus", value: "Enterprise AI agents" },
+  { label: "Core stack", value: "Python, C#, REST APIs" },
+  { label: "Domain", value: "CRM workflow automation" },
+];
+
+const focusAreas = [
+  {
+    title: "AI Agent Systems",
+    description:
+      "Designing agentic workflows, reusable AI skills, and multi-step automation for enterprise CRM operations.",
+  },
+  {
+    title: "Backend Integration",
+    description:
+      "Connecting LLM-driven workflows with REST APIs, business logic, SQL-backed services, and operational validation.",
+  },
+  {
+    title: "Workflow Automation",
+    description:
+      "Turning dispatch, scheduling, notification, and route-planning processes into clearer execution pipelines.",
+  },
+];
+
+const experiences = [
+  {
+    company: "Datasys",
+    location: "New Taipei City, Taiwan",
+    roles: [
+      {
+        title: "AI Application Engineer",
+        period: "Jan 2026 - Present",
+        summary:
+          "Building enterprise AI agent workflows for CRM repair operations, dispatching, scheduling, and route planning.",
+        highlights: [
+          "Built reusable AI agent skills that connect LLM workflow nodes with enterprise CRM APIs and JavaScript function logic.",
+          "Evolved prompt-based API execution into structured workflow pipelines with conditional routing and state-driven orchestration.",
+          "Integrated Google Maps APIs to support travel-time estimation, field-service scheduling, and route-planning automation.",
+          "Designed OpenAPI-documented services so backend capabilities can be invoked reliably by AI workflows and internal tools.",
+        ],
+        skills: [
+          "AI Agents",
+          "Multi-Agent Orchestration",
+          "Workflow Automation",
+          "RESTful APIs",
+          "OpenAPI / Swagger",
+          "Google Maps APIs",
+        ],
+        featured: true,
+      },
+      {
+        title: "Software Engineer",
+        period: "Sep 2025 - Dec 2025",
+        summary:
+          "Developed CRM customization features and backend modules for enterprise business workflows.",
+        highlights: [
+          "Implemented CRM modules, UI behavior, and backend logic using C#, .NET Framework, ASP.NET Web Forms, and SQL Server.",
+          "Translated business requirements into maintainable features with testing and debugging before UAT.",
+          "Improved implementation documentation and mentored a new team member, reducing ramp-up time by about 40%.",
+        ],
+        skills: ["C#", ".NET Framework", "ASP.NET Web Forms", "SQL Server"],
+      },
+    ],
+  },
+  {
+    company: "GoMore",
+    location: "Taipei, Taiwan",
+    roles: [
+      {
+        title: "Quality Assurance Intern",
+        period: "Feb 2025 - Aug 2025",
+        summary:
+          "Tested mobile apps, web dashboards, APIs, wearable devices, and machine-learning model outputs across real usage scenarios.",
+        highlights: [
+          "Designed functional and exploratory test cases for mobile apps and web management dashboards, then verified fixes across releases.",
+          "Performed API integration testing with Postman to catch backend-frontend consistency issues earlier.",
+          "Collected real-world sensor and firmware data for wearable devices, supporting engineering validation and stability improvements.",
+          "Created Python automation scripts to validate machine-learning model accuracy and reduce manual verification effort.",
+        ],
+        skills: [
+          "Test Design",
+          "Postman",
+          "Jira / Agile",
+          "Python Automation",
+          "ML Validation",
+        ],
+      },
+    ],
+  },
+];
+
+const skillGroups = [
+  {
+    title: "AI & Workflow",
+    skills: [
+      "AI Agents",
+      "Agentic AI Development",
+      "Multi-Agent Orchestration",
+      "LLM Workflows",
+      "Tool-Invocable Services",
+      "Workflow Automation",
+    ],
+  },
+  {
+    title: "Backend",
+    skills: [
+      "Python",
+      "C# / .NET Framework",
+      "SQL Server",
+      "RESTful APIs",
+      "OpenAPI / Swagger",
+      "ASP.NET Web Forms",
+    ],
+  },
+  {
+    title: "Engineering",
+    skills: [
+      "System Integration",
+      "Google Maps APIs",
+      "Git",
+      "Jira / Agile",
+      "Testing & Debugging",
+      "Documentation",
+    ],
+  },
+];
+
+const certifications = [
+  "Building AI Agents and Agentic Workflows Specialization",
+  "Introduction to Image Generation",
+  "Vertex AI Studio",
+  "Introduction to Responsible AI",
+  "Google Cloud Computing Foundations: Data, ML, and AI",
+];
+
+function Pill({
+  children,
+  active = false,
+}: {
+  children: string;
+  active?: boolean;
+}) {
+  return (
+    <span
+      className={[
+        "rounded-md px-2.5 py-1 text-xs transition-colors",
+        active
+          ? "bg-indigo-50 text-indigo-700 ring-1 ring-indigo-100"
+          : "bg-gray-100 text-gray-700 ring-1 ring-gray-200",
+      ].join(" ")}
+    >
+      {children}
+    </span>
+  );
+}
+
+function SectionTitle({
+  eyebrow,
+  title,
+}: {
+  eyebrow: string;
+  title: string;
+}) {
+  return (
+    <div className="mb-5">
+      <p className="text-xs font-medium uppercase tracking-widest text-indigo-600">
+        {eyebrow}
+      </p>
+      <h2 className="mt-1 text-xl font-semibold tracking-tight text-gray-950">
+        {title}
+      </h2>
+    </div>
+  );
+}
 
 export default function ResumePage() {
   return (
-    <main className="max-w-6xl mx-auto px-6 py-10 space-y-6">
-      <section className="relative overflow-hidden rounded-2xl border border-indigo-100 bg-gradient-to-br from-white via-indigo-50/50 to-white px-6 py-7 shadow-sm">
-        <div className="pointer-events-none absolute -right-16 -top-20 h-44 w-44 rounded-full bg-indigo-100/80 blur-3xl" />
-        <div className="pointer-events-none absolute -left-16 -bottom-20 h-44 w-44 rounded-full bg-sky-100/70 blur-3xl" />
-
-        <div className="relative flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <div>
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+    <div className="py-10">
+      <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl">
+            <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
+              <span className="h-2 w-2 rounded-full bg-emerald-500" />
+              Open to software engineering opportunities
+            </p>
+            <h1 className="text-4xl font-bold tracking-tight text-gray-950 md:text-5xl">
               Chih-Chi Chen
             </h1>
-            <p className="mt-2 text-gray-600">
-              Software Engineer · AI Applications · Backend / Fullstack
+            <p className="mt-3 text-lg font-medium text-gray-900">
+              AI Application Engineer focused on enterprise AI agents and
+              backend-integrated workflow automation.
             </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <span className="px-2.5 py-1 text-xs rounded-full bg-indigo-100 text-indigo-700">
-                AI Agent Systems
-              </span>
-              <span className="px-2.5 py-1 text-xs rounded-full bg-indigo-100 text-indigo-700">
-                Prompt Engineering
-              </span>
-              <span className="px-2.5 py-1 text-xs rounded-full bg-indigo-100 text-indigo-700">
-                Enterprise CRM
-              </span>
-            </div>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-gray-600">
+              I build CRM automation systems that connect LLM workflows,
+              backend services, enterprise APIs, and operational data into
+              maintainable execution pipelines.
+            </p>
           </div>
 
-          <div className="flex items-center gap-3 text-indigo-600">
+          <div className="flex flex-wrap gap-2 text-gray-600 lg:justify-end">
             <a
               href="mailto:samuel361592@gmail.com"
-              className="p-2 rounded-md hover:bg-indigo-100 hover:text-indigo-800 transition hover:-translate-y-0.5 hover:scale-105"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-gray-200 bg-white transition hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700"
               aria-label="Email"
             >
-              <Mail className="h-5 w-5" />
+              <Mail className="h-4 w-4" />
             </a>
             <a
               href="https://github.com/samuel361592"
               target="_blank"
               rel="noreferrer"
-              className="p-2 rounded-md hover:bg-indigo-100 hover:text-indigo-800 transition hover:-translate-y-0.5 hover:scale-105"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-gray-200 bg-white transition hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700"
               aria-label="GitHub"
             >
-              <Github className="h-5 w-5" />
+              <Github className="h-4 w-4" />
             </a>
             <a
-              href="https://www.linkedin.com/in/chihchichen"
+              href="https://www.linkedin.com/in/samuel361592"
               target="_blank"
               rel="noreferrer"
-              className="p-2 rounded-md hover:bg-indigo-100 hover:text-indigo-800 transition hover:-translate-y-0.5 hover:scale-105"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-gray-200 bg-white transition hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700"
               aria-label="LinkedIn"
             >
-              <Linkedin className="h-5 w-5" />
+              <Linkedin className="h-4 w-4" />
             </a>
+            <Link
+              href="/resume.pdf"
+              className="inline-flex h-10 items-center gap-2 rounded-md bg-indigo-600 px-4 text-sm font-medium text-white transition hover:bg-indigo-700"
+            >
+              <Download className="h-4 w-4" />
+              PDF
+            </Link>
           </div>
         </div>
-      </section>
 
-      <section className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition duration-300 hover:shadow-md">
-        <div className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full bg-indigo-100/50 blur-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-        <h2 className="text-lg font-semibold mb-3">Summary</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-700 leading-relaxed">
-          <p>
-            Software Engineer specializing in AI agent systems and enterprise
-            automation, with hands-on experience building modular,
-            production-grade agents and backend integrations.
-          </p>
-          <p>
-            Strong in prompt engineering, RESTful API design, and enterprise
-            development with C#, .NET Framework, ASP.NET, and SQL Server,
-            focusing on maintainability, workflow integrity, and business logic
-            consistency.
-          </p>
-        </div>
-      </section>
-
-      <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-        <h2 className="text-lg font-semibold mb-5">Experience</h2>
-
-        <div className="space-y-6">
-          <div className="group relative overflow-hidden rounded-xl border border-indigo-100 bg-gradient-to-br from-white via-indigo-50/40 to-white p-4 transition duration-300 hover:-translate-y-0.5 hover:shadow-md">
-            <div className="pointer-events-none absolute -right-14 -top-16 h-40 w-40 rounded-full bg-indigo-100/70 blur-3xl" />
-            <p className="text-sm text-gray-500 mb-4">鼎新數智股份有限公司</p>
-
-            <div className="relative pl-8 space-y-6">
-              <div className="absolute left-3 top-3 bottom-3 w-px bg-gray-300" />
-
-              <div className="relative rounded-lg border border-transparent p-3 -mx-3 transition duration-300 hover:bg-white/80 hover:border-indigo-100">
-                <div className="absolute -left-8 top-4 h-2.5 w-2.5 rounded-full bg-gray-500" />
-                <div className="flex justify-between flex-wrap gap-3 mb-3">
-                  <h3 className="font-semibold text-gray-900 leading-snug">
-                    Junior AI Application Engineer
-                  </h3>
-                  <span className="text-xs md:text-sm text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full h-fit">
-                    Feb 2026 – Present · 3 months
-                  </span>
-                </div>
-                <ul className="list-disc list-outside pl-5 space-y-2 text-gray-700 text-sm leading-relaxed">
-                  <li>
-                    Contributed as a core developer to a new AI agent product,
-                    building a platform that automates enterprise CRM
-                    maintenance workflows through natural language interactions
-                  </li>
-                  <li>
-                    Designed prompt flows and agent behaviors to support
-                    structured task execution, including repair order creation,
-                    status lookup, and customer validation
-                  </li>
-                  <li>
-                    Implemented RESTful APIs and backend integrations to connect
-                    AI agent actions with CRM maintenance services
-                  </li>
-                  <li>
-                    Optimized production prompts and response handling to improve
-                    determinism, workflow reliability, and business rule
-                    compliance
-                  </li>
-                  <li>
-                    Collaborated with teammates to refine product scope, verify
-                    feature behavior, and ensure the AI agent experience aligned
-                    with real CRM maintenance scenarios
-                  </li>
-                </ul>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <span className="px-2.5 py-1 text-xs rounded-full bg-indigo-50 text-indigo-700 transition hover:bg-indigo-100">
-                    Prompt Engineering
-                  </span>
-                  <span className="px-2.5 py-1 text-xs rounded-full bg-indigo-50 text-indigo-700 transition hover:bg-indigo-100">
-                    RESTful API Design
-                  </span>
-                  <span className="px-2.5 py-1 text-xs rounded-full bg-indigo-50 text-indigo-700 transition hover:bg-indigo-100">
-                    AI Agent Development
-                  </span>
-                  <span className="px-2.5 py-1 text-xs rounded-full bg-indigo-50 text-indigo-700 transition hover:bg-indigo-100">
-                    Enterprise CRM Automation
-                  </span>
-                </div>
-              </div>
-
-              <div className="relative rounded-lg border border-transparent p-3 -mx-3 transition duration-300 hover:bg-white/80 hover:border-indigo-100">
-                <div className="absolute -left-8 top-4 h-2.5 w-2.5 rounded-full bg-gray-500" />
-                <div className="flex justify-between flex-wrap gap-3 mb-3">
-                  <h3 className="font-semibold text-gray-900 leading-snug">
-                    Junior Software Engineer
-                  </h3>
-                  <span className="text-xs md:text-sm text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full h-fit">
-                    Sep 2025 – Jan 2026 · 5 months
-                  </span>
-                </div>
-                <ul className="list-disc list-outside pl-5 space-y-2 text-gray-700 text-sm leading-relaxed">
-                  <li>
-                    Took ownership of system design, implementation, and quality
-                    control tasks for enterprise CRM customization projects,
-                    translating client requirements into logic design, feature
-                    delivery, and functional verification
-                  </li>
-                  <li>
-                    Developed customized modules, UI components, and backend
-                    logic using C#, .NET Framework, ASP.NET Web Forms, and SQL
-                    Server
-                  </li>
-                  <li>
-                    Reviewed and updated onboarding and development
-                    documentation to replace outdated content with practical
-                    implementation details, improving alignment with current
-                    workflows
-                  </li>
-                  <li>
-                    Mentored and onboarded a new team member through hands-on
-                    guidance on internal tools, workflows, and system
-                    architecture, reducing ramp-up time by about 40%
-                  </li>
-                  <li>
-                    Conducted functional testing and debugging to ensure
-                    customized features met requirements before handoff for UAT
-                    with consultants and clients
-                  </li>
-                </ul>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <span className="px-2.5 py-1 text-xs rounded-full bg-gray-100 text-gray-700 transition hover:bg-gray-200">
-                    C#
-                  </span>
-                  <span className="px-2.5 py-1 text-xs rounded-full bg-gray-100 text-gray-700 transition hover:bg-gray-200">
-                    .NET Framework
-                  </span>
-                  <span className="px-2.5 py-1 text-xs rounded-full bg-gray-100 text-gray-700 transition hover:bg-gray-200">
-                    ASP.NET Web Forms
-                  </span>
-                  <span className="px-2.5 py-1 text-xs rounded-full bg-gray-100 text-gray-700 transition hover:bg-gray-200">
-                    SQL Server
-                  </span>
-                </div>
-              </div>
+        <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          {profileStats.map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-lg border border-gray-200 bg-gray-50 p-4"
+            >
+              <p className="text-xs uppercase tracking-wide text-gray-500">
+                {stat.label}
+              </p>
+              <p className="mt-1 text-sm font-medium text-gray-950">
+                {stat.value}
+              </p>
             </div>
-          </div>
+          ))}
+        </div>
+      </section>
 
-          <div className="group relative overflow-hidden rounded-xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-indigo-100 hover:shadow-md">
-            <div className="pointer-events-none absolute -right-14 -top-16 h-36 w-36 rounded-full bg-indigo-100/60 blur-3xl" />
+      <section className="mt-8">
+        <SectionTitle eyebrow="Overview" title="What I Do Best" />
+        <div className="grid gap-4 md:grid-cols-3">
+          {focusAreas.map((area) => (
+            <article
+              key={area.title}
+              className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <h3 className="text-sm font-semibold text-gray-950">
+                {area.title}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-gray-600">
+                {area.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
 
-            <div className="flex justify-between flex-wrap gap-3 mb-3">
-              <div>
-                <h3 className="font-semibold text-gray-900 leading-snug transition-colors group-hover:text-indigo-700">
-                  QA Intern
+      <section className="mt-10">
+        <SectionTitle eyebrow="Experience" title="Recent Work" />
+        <div className="space-y-5">
+          {experiences.map((experience) => (
+            <article
+              key={experience.company}
+              className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm md:p-6"
+            >
+              <div className="mb-5 flex flex-col gap-2 border-b border-gray-100 pb-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50 text-indigo-700">
+                    <BriefcaseBusiness className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-950">
+                      {experience.company}
+                    </h3>
+                    <p className="mt-1 flex items-center gap-1 text-xs text-gray-500">
+                      <MapPin className="h-3.5 w-3.5" />
+                      {experience.location}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-7">
+                {experience.roles.map((role) => (
+                  <div
+                    key={`${experience.company}-${role.title}`}
+                    className="grid gap-4 md:grid-cols-[220px_1fr]"
+                  >
+                    <div>
+                      <h4 className="font-medium text-gray-950">
+                        {role.title}
+                      </h4>
+                      <p className="mt-1 text-sm text-gray-500">
+                        {role.period}
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-sm font-medium leading-6 text-gray-800">
+                        {role.summary}
+                      </p>
+                      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-gray-600">
+                        {role.highlights.map((highlight) => (
+                          <li key={highlight}>{highlight}</li>
+                        ))}
+                      </ul>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {role.skills.map((skill) => (
+                          <Pill key={skill} active={role.featured}>
+                            {skill}
+                          </Pill>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <div className="mt-10 grid gap-6 lg:grid-cols-12">
+        <section className="lg:col-span-8">
+          <SectionTitle eyebrow="Skills" title="Technical Toolkit" />
+          <div className="grid gap-4 md:grid-cols-3">
+            {skillGroups.map((group) => (
+              <article
+                key={group.title}
+                className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm"
+              >
+                <h3 className="text-sm font-semibold text-gray-950">
+                  {group.title}
                 </h3>
-                <p className="text-sm text-gray-500 mt-1">GoMore</p>
-              </div>
-              <span className="text-xs md:text-sm text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full h-fit">
-                Feb 2023 – Aug 2025 · 7 months
-              </span>
-            </div>
-
-            <ul className="list-disc list-outside pl-5 space-y-2 text-gray-700 text-sm leading-relaxed">
-              <li>
-                Executed functional testing for the "活力翻翻" mobile app and its
-                web-based management dashboard by designing test cases,
-                reporting issues, and validating fixes, ensuring high-quality
-                releases
-              </li>
-              <li>
-                Performed functional and exploratory testing for the MegoLuki
-                mobile app, verifying core user flows, UI/UX behavior, and
-                feature stability across different scenarios, and collaborating
-                with the team to identify and report defects
-              </li>
-              <li>
-                Performed structured motion testing (nodding, shaking) for Cleer
-                wireless headphones under exercise and public transportation
-                scenarios, collecting sensor accuracy data to validate
-                motion-triggered features and improve device stability
-              </li>
-              <li>
-                Collected and analyzed real-world sensor and firmware
-                performance data for Oura Ring wearable devices, supporting
-                engineering teams in validating sensor accuracy and ensuring
-                reliable firmware updates
-              </li>
-              <li>
-                Performed API integration testing using Postman to validate
-                response accuracy, logic, and formatting, increasing defect
-                detection and improving backend-frontend consistency
-              </li>
-              <li>
-                Managed defect lifecycle and coordinated cross-team issue
-                resolution in Jira within an Agile environment, streamlining
-                sprint workflows and accelerating feature delivery
-              </li>
-              <li>
-                Developed Python automation scripts to validate machine learning
-                model accuracy, increasing test coverage and reducing manual
-                verification effort
-              </li>
-              <li>
-                Validated machine learning model predictions against defined
-                criteria and collaborated with engineers to improve model
-                quality and ensure production readiness
-              </li>
-            </ul>
-
-            <div className="mt-4 flex flex-wrap gap-2">
-              <span className="px-2.5 py-1 text-xs rounded-full bg-gray-100 text-gray-700 transition group-hover:bg-indigo-50 group-hover:text-indigo-700">
-                Test Design
-              </span>
-              <span className="px-2.5 py-1 text-xs rounded-full bg-gray-100 text-gray-700 transition group-hover:bg-indigo-50 group-hover:text-indigo-700">
-                Manual Testing
-              </span>
-              <span className="px-2.5 py-1 text-xs rounded-full bg-gray-100 text-gray-700 transition group-hover:bg-indigo-50 group-hover:text-indigo-700">
-                Postman API Testing
-              </span>
-              <span className="px-2.5 py-1 text-xs rounded-full bg-gray-100 text-gray-700 transition group-hover:bg-indigo-50 group-hover:text-indigo-700">
-                Jira / Agile
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <section className="lg:col-span-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition duration-300 hover:shadow-md">
-          <h2 className="text-lg font-semibold mb-5">Skills</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-            <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 transition duration-300 hover:-translate-y-0.5 hover:shadow-sm">
-              <h4 className="font-medium mb-3 text-gray-900">Backend</h4>
-              <ul className="flex flex-wrap gap-2">
-                <li className="px-3 py-1 text-xs rounded-full bg-white border border-gray-200 transition hover:border-indigo-200 hover:bg-indigo-50">
-                  C# / .NET Framework
-                </li>
-                <li className="px-3 py-1 text-xs rounded-full bg-white border border-gray-200 transition hover:border-indigo-200 hover:bg-indigo-50">
-                  SQL Server
-                </li>
-                <li className="px-3 py-1 text-xs rounded-full bg-white border border-gray-200 transition hover:border-indigo-200 hover:bg-indigo-50">
-                  RESTful API
-                </li>
-                <li className="px-3 py-1 text-xs rounded-full bg-white border border-gray-200 transition hover:border-indigo-200 hover:bg-indigo-50">
-                  Nest.js
-                </li>
-              </ul>
-            </div>
-
-            <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 transition duration-300 hover:-translate-y-0.5 hover:shadow-sm">
-              <h4 className="font-medium mb-3 text-gray-900">Frontend</h4>
-              <ul className="flex flex-wrap gap-2">
-                <li className="px-3 py-1 text-xs rounded-full bg-white border border-gray-200 transition hover:border-indigo-200 hover:bg-indigo-50">
-                  ASP.NET Web Forms
-                </li>
-                <li className="px-3 py-1 text-xs rounded-full bg-white border border-gray-200 transition hover:border-indigo-200 hover:bg-indigo-50">
-                  React / Next.js
-                </li>
-                <li className="px-3 py-1 text-xs rounded-full bg-white border border-gray-200 transition hover:border-indigo-200 hover:bg-indigo-50">
-                  Tailwind CSS
-                </li>
-              </ul>
-            </div>
-
-            <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 transition duration-300 hover:-translate-y-0.5 hover:shadow-sm">
-              <h4 className="font-medium mb-3 text-gray-900">AI & Engineering</h4>
-              <ul className="flex flex-wrap gap-2">
-                <li className="px-3 py-1 text-xs rounded-full bg-white border border-gray-200 transition hover:border-indigo-200 hover:bg-indigo-50">
-                  Prompt Engineering
-                </li>
-                <li className="px-3 py-1 text-xs rounded-full bg-white border border-gray-200 transition hover:border-indigo-200 hover:bg-indigo-50">
-                  Git
-                </li>
-                <li className="px-3 py-1 text-xs rounded-full bg-white border border-gray-200 transition hover:border-indigo-200 hover:bg-indigo-50">
-                  Jira / Agile
-                </li>
-                <li className="px-3 py-1 text-xs rounded-full bg-white border border-gray-200 transition hover:border-indigo-200 hover:bg-indigo-50">
-                  Testing & Debugging
-                </li>
-              </ul>
-            </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <Pill key={skill}>{skill}</Pill>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
-        <aside className="lg:col-span-4 space-y-6">
-          <section className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-md">
-            <h2 className="text-lg font-semibold mb-3">Education</h2>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              Shih Hsin University
-            </p>
-            <p className="text-sm text-gray-600">
-              B.S. in Information Management (2021 – 2025)
-            </p>
+        <aside className="space-y-6 lg:col-span-4">
+          <section>
+            <SectionTitle eyebrow="Education" title="Background" />
+            <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+              <h3 className="text-sm font-semibold text-gray-950">
+                Shih Hsin University
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-gray-600">
+                B.S. in Information Management
+              </p>
+              <p className="mt-1 text-sm text-gray-500">
+                Sep 2021 - Jun 2025
+              </p>
+            </div>
           </section>
 
-          <section className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-md">
-            <h2 className="text-lg font-semibold mb-4">Resume</h2>
-            <Link
-              href="/resume.pdf"
-              className="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition text-sm font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5"
-            >
-              Download Resume (PDF)
-            </Link>
+          <section>
+            <SectionTitle eyebrow="Learning" title="Certifications" />
+            <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+              <ul className="space-y-3 text-sm leading-6 text-gray-600">
+                {certifications.map((certification) => (
+                  <li key={certification}>{certification}</li>
+                ))}
+              </ul>
+            </div>
           </section>
         </aside>
       </div>
-    </main>
+    </div>
   );
 }
