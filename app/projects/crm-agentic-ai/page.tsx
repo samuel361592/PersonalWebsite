@@ -23,7 +23,7 @@ const caseText = {
       subtitle:
         "From prompt-based API execution to reusable enterprise AI skills.",
       description:
-        "This case study summarizes how an enterprise CRM automation system evolved across four architecture stages to improve determinism, maintainability, reuse, and workflow control for repair, dispatch, scheduling, notification, and route-planning operations.",
+        "This case study summarizes how an enterprise CRM automation system evolved through multiple architecture stages and is now exploring a reusable skill-based direction for repair, dispatch, scheduling, notification, and route-planning operations.",
       stats: [
         ["Architecture focus", "Agentic AI execution"],
         ["System domain", "Enterprise CRM workflows"],
@@ -39,9 +39,9 @@ const caseText = {
       },
       flow: {
         eyebrow: "System Model",
-        title: "Final Skill-Based Flow",
+        title: "Candidate Skill-Based Flow",
         description:
-          "The final direction separates agent intent from stable execution capabilities.",
+          "The current direction explores how to separate agent intent from stable execution capabilities.",
       },
       comparison: {
         eyebrow: "Comparison",
@@ -60,7 +60,6 @@ const caseText = {
       pattern: "Pattern",
       strengths: "Strengths",
       limits: "Limits",
-      nextStep: "Next step",
       before: "Before",
       after: "After",
       takeaway: "Core takeaway",
@@ -69,7 +68,7 @@ const caseText = {
       {
         stage: "Stage 1",
         title: "Prompt-Based API Execution",
-        pattern: "User Input -> Prompt -> LLM -> API Call -> Response",
+        pattern: "User Input → Prompt → LLM → API Call → Response",
         strengths: ["Fast to prototype", "High semantic flexibility"],
         limits: [
           "Prompt complexity grew quickly",
@@ -81,7 +80,7 @@ const caseText = {
         stage: "Stage 2",
         title: "Multi-Agent Architecture",
         pattern:
-          "Master Agent -> Query Agent -> Validation Agent -> Notification Agent -> Route Agent",
+          "User Request → Master Agent\n├─ Query Agent\n├─ Validation Agent\n├─ Notification Agent\n└─ Route Agent",
         strengths: [
           "Clearer responsibility boundaries",
           "Easier prompt ownership",
@@ -96,7 +95,7 @@ const caseText = {
         stage: "Stage 3",
         title: "Workflow-Based Execution",
         pattern:
-          "LLM Node -> Function Node -> API Node -> Condition Node -> State Node",
+          "Workflow Orchestrator\n├─ LLM Node\n├─ Function Node\n├─ API Node\n├─ Condition Node\n└─ State Node\n(dynamic path based on workflow state)",
         strengths: [
           "More deterministic execution",
           "Better debugging visibility",
@@ -109,15 +108,17 @@ const caseText = {
         ],
       },
       {
-        stage: "Stage 4",
-        title: "Skill-Based Architecture",
-        pattern: "Agent -> Skill -> Workflow / API / LLM -> CRM Operation Result",
+        stage: "Stage 4 / In Progress",
+        title: "Skill-Based Architecture Direction",
+        pattern:
+          "Agent → Candidate Skill → Workflow / API / LLM → CRM Operation Result",
         strengths: [
-          "Reusable capabilities",
+          "Reusable capabilities under exploration",
           "More modular platform direction",
-          "Cleaner separation between agent intent and execution details",
+          "Clearer separation between agent intent and execution details",
         ],
         limits: [
+          "Architecture is still being validated",
           "Higher abstraction complexity",
           "Debugging needs stronger observability across layers",
         ],
@@ -125,10 +126,10 @@ const caseText = {
     ],
     beforeAfter: [
       ["Prompt controls flow", "Workflow controls flow"],
-      ["LLM decides execution details", "Agent selects stable skills"],
-      ["Logic repeated across prompts", "Capabilities are reusable"],
-      ["Hard to debug failures", "Node and skill boundaries improve traceability"],
-      ["Prototype-oriented structure", "Enterprise-ready execution architecture"],
+      ["LLM decides execution details", "Agent routes toward candidate skills"],
+      ["Logic repeated across prompts", "Capabilities are being shaped into reusable units"],
+      ["Hard to debug failures", "Node and skill boundaries can improve traceability"],
+      ["Prototype-oriented structure", "Moving toward enterprise-ready execution architecture"],
     ],
     capabilityGroups: [
       {
@@ -172,7 +173,7 @@ const caseText = {
       { title: "CRM Result", detail: "Completes operation", icon: CheckCircle2 },
     ],
     takeaway:
-      "The important engineering shift was not adding more prompts. It was designing an execution architecture where agents choose reusable capabilities, while workflows and backend services handle the deterministic parts of enterprise operations.",
+      "The important engineering shift is not adding more prompts. It is moving toward an execution architecture where agents can choose reusable capabilities, while workflows and backend services handle the deterministic parts of enterprise operations.",
   },
   zh: {
     back: "回到專案",
@@ -181,7 +182,7 @@ const caseText = {
       title: "CRM Agentic AI 架構演進",
       subtitle: "從 prompt-based API execution 到可重用的企業 AI skills。",
       description:
-        "這份案例整理企業 CRM 自動化系統如何經過四個架構階段，改善維修、派工、排程、通知與路線規劃作業中的可預期性、可維護性、重用性與流程控制。",
+        "這份案例整理企業 CRM 自動化系統如何經過多個架構階段，並正在探索以可重用 skills 支援維修、派工、排程、通知與路線規劃作業的方向。",
       stats: [
         ["架構重點", "Agentic AI execution"],
         ["系統領域", "企業 CRM 工作流程"],
@@ -197,8 +198,8 @@ const caseText = {
       },
       flow: {
         eyebrow: "系統模型",
-        title: "最終 Skill-Based Flow",
-        description: "最終方向是把 agent 意圖與穩定執行能力分離。",
+        title: "Candidate Skill-Based Flow",
+        description: "目前方向是探索如何把 agent 意圖與穩定執行能力分離。",
       },
       comparison: {
         eyebrow: "比較",
@@ -216,7 +217,6 @@ const caseText = {
       pattern: "Pattern",
       strengths: "優勢",
       limits: "限制",
-      nextStep: "下一步",
       before: "Before",
       after: "After",
       takeaway: "核心重點",
@@ -225,7 +225,7 @@ const caseText = {
       {
         stage: "階段 1",
         title: "Prompt-Based API Execution",
-        pattern: "User Input -> Prompt -> LLM -> API Call -> Response",
+        pattern: "User Input → Prompt → LLM → API Call → Response",
         strengths: ["原型開發速度快", "語意彈性高"],
         limits: [
           "Prompt 複雜度快速增加",
@@ -237,7 +237,7 @@ const caseText = {
         stage: "階段 2",
         title: "Multi-Agent Architecture",
         pattern:
-          "Master Agent -> Query Agent -> Validation Agent -> Notification Agent -> Route Agent",
+          "User Request → Master Agent\n├─ Query Agent\n├─ Validation Agent\n├─ Notification Agent\n└─ Route Agent",
         strengths: ["責任邊界更清楚", "Prompt ownership 更容易管理"],
         limits: [
           "協調成本變高",
@@ -249,7 +249,7 @@ const caseText = {
         stage: "階段 3",
         title: "Workflow-Based Execution",
         pattern:
-          "LLM Node -> Function Node -> API Node -> Condition Node -> State Node",
+          "Workflow Orchestrator\n├─ LLM Node\n├─ Function Node\n├─ API Node\n├─ Condition Node\n└─ State Node\n(dynamic path based on workflow state)",
         strengths: [
           "執行更可預期",
           "除錯可視性更好",
@@ -262,15 +262,17 @@ const caseText = {
         ],
       },
       {
-        stage: "階段 4",
-        title: "Skill-Based Architecture",
-        pattern: "Agent -> Skill -> Workflow / API / LLM -> CRM Operation Result",
+        stage: "階段 4（進行中）",
+        title: "Skill-Based Architecture Direction",
+        pattern:
+          "Agent → Candidate Skill → Workflow / API / LLM → CRM Operation Result",
         strengths: [
-          "能力可以重用",
+          "正在探索可重用能力",
           "平台方向更模組化",
           "Agent intent 與 execution details 分離更乾淨",
         ],
         limits: [
+          "架構仍在驗證中",
           "抽象層複雜度提高",
           "跨層除錯需要更強的 observability",
         ],
@@ -278,10 +280,10 @@ const caseText = {
     ],
     beforeAfter: [
       ["Prompt 控制流程", "Workflow 控制流程"],
-      ["LLM 決定執行細節", "Agent 選擇穩定 skills"],
-      ["邏輯在 prompts 之間重複", "能力被封裝成可重用單位"],
-      ["失敗難以除錯", "節點與 skill 邊界提升可追蹤性"],
-      ["偏向原型的結構", "可支援企業流程的執行架構"],
+      ["LLM 決定執行細節", "Agent 導向候選 skills"],
+      ["邏輯在 prompts 之間重複", "能力正在被整理成可重用單位"],
+      ["失敗難以除錯", "節點與 skill 邊界可提升可追蹤性"],
+      ["偏向原型的結構", "逐步走向可支援企業流程的執行架構"],
     ],
     capabilityGroups: [
       {
@@ -325,7 +327,7 @@ const caseText = {
       { title: "CRM Result", detail: "完成作業結果", icon: CheckCircle2 },
     ],
     takeaway:
-      "關鍵工程轉變不是加入更多 prompts，而是設計一套執行架構：agents 選擇可重用能力，workflows 與後端服務負責企業作業中需要穩定、可預期的部分。",
+      "關鍵工程轉變不是加入更多 prompts，而是逐步走向一套執行架構：agents 可以選擇可重用能力，workflows 與後端服務負責企業作業中需要穩定、可預期的部分。",
   },
 };
 
@@ -378,7 +380,7 @@ export default function CrmAgenticAiCaseStudyPage() {
         <SectionHeader {...text.sections.timeline} />
 
         <div className="space-y-5">
-          {text.evolutionStages.map((stage, index) => (
+          {text.evolutionStages.map((stage) => (
             <article
               key={stage.title}
               className="grid gap-5 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm md:grid-cols-[190px_1fr] md:p-6"
@@ -397,7 +399,7 @@ export default function CrmAgenticAiCaseStudyPage() {
                   <p className="mb-2 text-xs uppercase tracking-widest text-gray-400">
                     {text.labels.pattern}
                   </p>
-                  <p className="font-mono text-sm leading-6 text-gray-800">
+                  <p className="whitespace-pre-line font-mono text-sm leading-6 text-gray-800">
                     {stage.pattern}
                   </p>
                 </div>
@@ -410,12 +412,6 @@ export default function CrmAgenticAiCaseStudyPage() {
                   <SignalList title={text.labels.limits} items={stage.limits} />
                 </div>
 
-                {index < text.evolutionStages.length - 1 ? (
-                  <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">
-                    {text.labels.nextStep}
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </div>
-                ) : null}
               </div>
             </article>
           ))}

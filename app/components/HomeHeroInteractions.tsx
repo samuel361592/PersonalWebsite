@@ -17,15 +17,16 @@ import { useLanguage } from "../lib/language";
 const homeInteractions = {
   en: {
     consoleLines: [
-      { label: "intent", text: "analyze CRM repair request" },
-      { label: "skill", text: "select crm_dispatch_workflow" },
-      { label: "validate", text: "check customer, task, and technician data" },
-      { label: "tool", text: "call route_planning_api" },
-      { label: "state", text: "update scheduling workflow context" },
-      { label: "result", text: "return structured operation summary" },
+      { label: "idea", text: "think of features that appear at 2 AM" },
+      { label: "prototype", text: "build it first, explain it later" },
+      { label: "overthink", text: "question the entire architecture" },
+      { label: "rewrite", text: "politely replace yesterday's decisions" },
+      { label: "animate", text: "add motion that is unnecessary but satisfying" },
+      { label: "deploy", text: "ship to production and start praying" },
     ],
-    command: "$ run crm_agent.execute",
-    ready: "workflow ready",
+    command: "$ npm run ship-something-cool",
+    ready: "production is probably fine",
+    consoleFile: "side-quest.ts",
     canvasEyebrow: "Architecture Canvas",
     canvasTitle: "Agentic AI, But With System Boundaries",
     canvasDescription:
@@ -87,15 +88,16 @@ const homeInteractions = {
   },
   zh: {
     consoleLines: [
-      { label: "意圖", text: "分析 CRM 維修需求" },
-      { label: "技能", text: "選擇 crm_dispatch_workflow" },
-      { label: "驗證", text: "確認客戶、任務與工程師資料" },
-      { label: "工具", text: "呼叫 route_planning_api" },
-      { label: "狀態", text: "更新排程工作流程上下文" },
-      { label: "結果", text: "回傳結構化作業摘要" },
+      { label: "idea", text: "想一些半夜會突然想做的功能" },
+      { label: "prototype", text: "先做出來再說" },
+      { label: "overthink", text: "懷疑整個架構設計" },
+      { label: "rewrite", text: "把昨天的自己打掉重寫" },
+      { label: "animate", text: "加上一些不必要但很爽的動畫" },
+      { label: "deploy", text: "丟上 production 然後開始祈禱" },
     ],
-    command: "$ run crm_agent.execute",
-    ready: "workflow ready",
+    command: "$ npm run ship-something-cool",
+    ready: "production is probably fine",
+    consoleFile: "side-quest.ts",
     canvasEyebrow: "架構畫布",
     canvasTitle: "有系統邊界的 Agentic AI",
     canvasDescription:
@@ -192,7 +194,7 @@ export function AgentConsole() {
           <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
         </div>
         <span className="font-mono text-xs text-slate-400">
-          agent-runner.ts
+          {text.consoleFile}
         </span>
       </div>
 
@@ -206,7 +208,7 @@ export function AgentConsole() {
               <div
                 key={line.label}
                 className={[
-                  "grid min-h-0 grid-cols-[74px_1fr] items-center gap-3 rounded-lg border px-3 py-1.5 transition duration-300",
+                  "grid min-h-0 grid-cols-[92px_1fr] items-center gap-3 rounded-lg border px-3 py-1.5 transition duration-300",
                   isVisible
                     ? "border-white/5 bg-white/[0.03] opacity-100"
                     : "border-transparent bg-transparent opacity-0",
