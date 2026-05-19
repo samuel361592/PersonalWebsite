@@ -1,16 +1,7 @@
 import "./globals.css";
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-
-function Footer() {
-  return (
-    <footer className="border-t border-gray-200 mt-16">
-      <div className="max-w-6xl mx-auto px-6 py-8 text-sm text-gray-500 flex justify-between">
-        <span>© {new Date().getFullYear()} Samuel</span>
-        <span>Built with Next.js</span>
-      </div>
-    </footer>
-  );
-}
+import { LanguageProvider } from "./lib/language";
 
 export default function RootLayout({
   children,
@@ -20,14 +11,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="bg-white text-gray-900">
-        <Navbar />
+        <LanguageProvider>
+          <Navbar />
 
-        {/* Main should NOT add top padding */}
-        <main className="max-w-5xl mx-auto px-6">
-          {children}
-        </main>
+          {/* Main should NOT add top padding */}
+          <main className="mx-auto max-w-5xl px-6">{children}</main>
 
-        <Footer />
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

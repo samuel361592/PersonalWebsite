@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   BriefcaseBusiness,
@@ -7,14 +9,28 @@ import {
   Mail,
   MapPin,
 } from "lucide-react";
+import { useLanguage } from "../lib/language";
 
-const profileStats = [
-  { label: "Current focus", value: "Enterprise AI agents" },
-  { label: "Core stack", value: "Python, C#, REST APIs" },
-  { label: "Domain", value: "CRM workflow automation" },
-];
-
-const focusAreas = [
+const resumeText = {
+  en: {
+    availability: "Open to software engineering opportunities",
+    title:
+      "AI Application Engineer focused on enterprise AI agents and backend-integrated workflow automation.",
+    intro:
+      "I build CRM automation systems that connect LLM workflows, backend services, enterprise APIs, and operational data into maintainable execution pipelines.",
+    profileStats: [
+      { label: "Current focus", value: "Enterprise AI agents" },
+      { label: "Core stack", value: "Python, C#, REST APIs" },
+      { label: "Domain", value: "CRM workflow automation" },
+    ],
+    overview: { eyebrow: "Overview", title: "What I Do Best" },
+    experience: { eyebrow: "Experience", title: "Recent Work" },
+    skills: { eyebrow: "Skills", title: "Technical Toolkit" },
+    education: { eyebrow: "Education", title: "Background" },
+    learning: { eyebrow: "Learning", title: "Certifications" },
+    degree: "B.S. in Information Management",
+    educationPeriod: "Sep 2021 - Jun 2025",
+    focusAreas: [
   {
     title: "AI Agent Systems",
     description:
@@ -30,9 +46,8 @@ const focusAreas = [
     description:
       "Turning dispatch, scheduling, notification, and route-planning processes into clearer execution pipelines.",
   },
-];
-
-const experiences = [
+],
+    experiences: [
   {
     company: "Datasys",
     location: "New Taipei City, Taiwan",
@@ -97,9 +112,8 @@ const experiences = [
       },
     ],
   },
-];
-
-const skillGroups = [
+],
+    skillGroups: [
   {
     title: "AI & Workflow",
     skills: [
@@ -133,15 +147,158 @@ const skillGroups = [
       "Documentation",
     ],
   },
-];
-
-const certifications = [
-  "Building AI Agents and Agentic Workflows Specialization",
-  "Introduction to Image Generation",
-  "Vertex AI Studio",
-  "Introduction to Responsible AI",
-  "Google Cloud Computing Foundations: Data, ML, and AI",
-];
+],
+    certifications: [
+      "Building AI Agents and Agentic Workflows Specialization",
+      "Introduction to Image Generation",
+      "Vertex AI Studio",
+      "Introduction to Responsible AI",
+      "Google Cloud Computing Foundations: Data, ML, and AI",
+    ],
+  },
+  zh: {
+    availability: "開放軟體工程相關機會",
+    title: "AI Application Engineer，專注企業 AI agents 與後端整合工作流程自動化。",
+    intro:
+      "我建立 CRM 自動化系統，把 LLM 工作流程、後端服務、企業 API 與營運資料串成可維護的執行管線。",
+    profileStats: [
+      { label: "目前重點", value: "企業 AI agents" },
+      { label: "核心技術", value: "Python, C#, REST APIs" },
+      { label: "領域", value: "CRM 工作流程自動化" },
+    ],
+    overview: { eyebrow: "概覽", title: "我的核心能力" },
+    experience: { eyebrow: "經歷", title: "近期工作" },
+    skills: { eyebrow: "技能", title: "技術工具箱" },
+    education: { eyebrow: "學歷", title: "背景" },
+    learning: { eyebrow: "學習", title: "證照與課程" },
+    degree: "資訊管理學系 學士",
+    educationPeriod: "2021 年 9 月 - 2025 年 6 月",
+    focusAreas: [
+      {
+        title: "AI Agent 系統",
+        description:
+          "設計 agentic workflows、可重用 AI skills，以及企業 CRM 作業的多步驟自動化。",
+      },
+      {
+        title: "後端整合",
+        description:
+          "把 LLM-driven workflows 串接 REST APIs、商業邏輯、SQL-backed services 與營運驗證。",
+      },
+      {
+        title: "工作流程自動化",
+        description:
+          "將派工、排程、通知與路線規劃流程整理成更清楚的執行管線。",
+      },
+    ],
+    experiences: [
+      {
+        company: "Datasys",
+        location: "New Taipei City, Taiwan",
+        roles: [
+          {
+            title: "AI Application Engineer",
+            period: "2026 年 1 月 - 現在",
+            summary:
+              "為 CRM 維修作業、派工、排程與路線規劃建立企業 AI agent workflows。",
+            highlights: [
+              "建立可重用 AI agent skills，串接 LLM workflow nodes、企業 CRM APIs 與 JavaScript function logic。",
+              "將 prompt-based API execution 演進成具備 conditional routing 與 state-driven orchestration 的結構化 workflow pipelines。",
+              "整合 Google Maps APIs 支援交通時間估算、外勤排程與路線規劃自動化。",
+              "設計 OpenAPI 文件化服務，讓後端能力能被 AI workflows 與內部工具可靠呼叫。",
+            ],
+            skills: [
+              "AI Agents",
+              "Multi-Agent Orchestration",
+              "Workflow Automation",
+              "RESTful APIs",
+              "OpenAPI / Swagger",
+              "Google Maps APIs",
+            ],
+            featured: true,
+          },
+          {
+            title: "Software Engineer",
+            period: "2025 年 9 月 - 2025 年 12 月",
+            summary: "開發企業商務流程所需的 CRM 客製功能與後端模組。",
+            highlights: [
+              "使用 C#, .NET Framework, ASP.NET Web Forms 與 SQL Server 實作 CRM 模組、UI 行為與後端邏輯。",
+              "將商業需求轉成可維護功能，並在 UAT 前完成測試與除錯。",
+              "改善實作文件並協助新人上手，使 ramp-up time 約降低 40%。",
+            ],
+            skills: ["C#", ".NET Framework", "ASP.NET Web Forms", "SQL Server"],
+          },
+        ],
+      },
+      {
+        company: "GoMore",
+        location: "Taipei, Taiwan",
+        roles: [
+          {
+            title: "Quality Assurance Intern",
+            period: "2025 年 2 月 - 2025 年 8 月",
+            summary:
+              "針對 mobile apps、web dashboards、APIs、wearable devices 與 machine-learning model outputs 進行真實使用情境測試。",
+            highlights: [
+              "設計 mobile apps 與 web management dashboards 的功能與探索式測試案例，並跨版本驗證修正結果。",
+              "使用 Postman 進行 API integration testing，提早發現前後端一致性問題。",
+              "蒐集 wearable devices 的真實 sensor 與 firmware data，支援工程驗證與穩定性改善。",
+              "建立 Python automation scripts 驗證 machine-learning model accuracy，降低人工驗證成本。",
+            ],
+            skills: [
+              "Test Design",
+              "Postman",
+              "Jira / Agile",
+              "Python Automation",
+              "ML Validation",
+            ],
+          },
+        ],
+      },
+    ],
+    skillGroups: [
+      {
+        title: "AI & Workflow",
+        skills: [
+          "AI Agents",
+          "Agentic AI Development",
+          "Multi-Agent Orchestration",
+          "LLM Workflows",
+          "Tool-Invocable Services",
+          "Workflow Automation",
+        ],
+      },
+      {
+        title: "Backend",
+        skills: [
+          "Python",
+          "C# / .NET Framework",
+          "SQL Server",
+          "RESTful APIs",
+          "OpenAPI / Swagger",
+          "ASP.NET Web Forms",
+        ],
+      },
+      {
+        title: "Engineering",
+        skills: [
+          "System Integration",
+          "Google Maps APIs",
+          "Git",
+          "Jira / Agile",
+          "Testing & Debugging",
+          "Documentation",
+        ],
+      },
+    ],
+    certifications: [
+      "Building AI Agents and Agentic Workflows Specialization",
+      "Introduction to Image Generation",
+      "Vertex AI Studio",
+      "Introduction to Responsible AI",
+      "Google Cloud Computing Foundations: Data, ML, and AI",
+    ],
+  },
+};
 
 function Pill({
   children,
@@ -184,6 +341,9 @@ function SectionTitle({
 }
 
 export default function ResumePage() {
+  const { language } = useLanguage();
+  const text = resumeText[language];
+
   return (
     <div className="py-10">
       <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
@@ -191,19 +351,16 @@ export default function ResumePage() {
           <div className="max-w-3xl">
             <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
               <span className="h-2 w-2 rounded-full bg-emerald-500" />
-              Open to software engineering opportunities
+              {text.availability}
             </p>
             <h1 className="text-4xl font-bold tracking-tight text-gray-950 md:text-5xl">
               Chih-Chi Chen
             </h1>
             <p className="mt-3 text-lg font-medium text-gray-900">
-              AI Application Engineer focused on enterprise AI agents and
-              backend-integrated workflow automation.
+              {text.title}
             </p>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-gray-600">
-              I build CRM automation systems that connect LLM workflows,
-              backend services, enterprise APIs, and operational data into
-              maintainable execution pipelines.
+              {text.intro}
             </p>
           </div>
 
@@ -244,7 +401,7 @@ export default function ResumePage() {
         </div>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
-          {profileStats.map((stat) => (
+          {text.profileStats.map((stat) => (
             <div
               key={stat.label}
               className="rounded-lg border border-gray-200 bg-gray-50 p-4"
@@ -261,9 +418,12 @@ export default function ResumePage() {
       </section>
 
       <section className="mt-8">
-        <SectionTitle eyebrow="Overview" title="What I Do Best" />
+        <SectionTitle
+          eyebrow={text.overview.eyebrow}
+          title={text.overview.title}
+        />
         <div className="grid gap-4 md:grid-cols-3">
-          {focusAreas.map((area) => (
+          {text.focusAreas.map((area) => (
             <article
               key={area.title}
               className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
@@ -280,9 +440,12 @@ export default function ResumePage() {
       </section>
 
       <section className="mt-10">
-        <SectionTitle eyebrow="Experience" title="Recent Work" />
+        <SectionTitle
+          eyebrow={text.experience.eyebrow}
+          title={text.experience.title}
+        />
         <div className="space-y-5">
-          {experiences.map((experience) => (
+          {text.experiences.map((experience) => (
             <article
               key={experience.company}
               className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm md:p-6"
@@ -346,9 +509,12 @@ export default function ResumePage() {
 
       <div className="mt-10 grid gap-6 lg:grid-cols-12">
         <section className="lg:col-span-8">
-          <SectionTitle eyebrow="Skills" title="Technical Toolkit" />
+          <SectionTitle
+            eyebrow={text.skills.eyebrow}
+            title={text.skills.title}
+          />
           <div className="grid gap-4 md:grid-cols-3">
-            {skillGroups.map((group) => (
+            {text.skillGroups.map((group) => (
               <article
                 key={group.title}
                 className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm"
@@ -368,25 +534,31 @@ export default function ResumePage() {
 
         <aside className="space-y-6 lg:col-span-4">
           <section>
-            <SectionTitle eyebrow="Education" title="Background" />
+            <SectionTitle
+              eyebrow={text.education.eyebrow}
+              title={text.education.title}
+            />
             <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
               <h3 className="text-sm font-semibold text-gray-950">
                 Shih Hsin University
               </h3>
               <p className="mt-2 text-sm leading-6 text-gray-600">
-                B.S. in Information Management
+                {text.degree}
               </p>
               <p className="mt-1 text-sm text-gray-500">
-                Sep 2021 - Jun 2025
+                {text.educationPeriod}
               </p>
             </div>
           </section>
 
           <section>
-            <SectionTitle eyebrow="Learning" title="Certifications" />
+            <SectionTitle
+              eyebrow={text.learning.eyebrow}
+              title={text.learning.title}
+            />
             <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
               <ul className="space-y-3 text-sm leading-6 text-gray-600">
-                {certifications.map((certification) => (
+                {text.certifications.map((certification) => (
                   <li key={certification}>{certification}</li>
                 ))}
               </ul>

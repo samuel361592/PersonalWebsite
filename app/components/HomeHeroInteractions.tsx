@@ -12,70 +12,150 @@ import {
   Map,
   Workflow,
 } from "lucide-react";
+import { useLanguage } from "../lib/language";
 
-const consoleLines = [
-  { label: "intent", text: "analyze CRM repair request" },
-  { label: "skill", text: "select crm_dispatch_workflow" },
-  { label: "validate", text: "check customer, task, and technician data" },
-  { label: "tool", text: "call route_planning_api" },
-  { label: "state", text: "update scheduling workflow context" },
-  { label: "result", text: "return structured operation summary" },
-];
-
-const architectureLayers = [
-  {
-    title: "Agent Layer",
-    subtitle: "Interprets task intent",
-    detail:
-      "The agent decides what capability is needed without owning every execution detail.",
-    icon: Bot,
+const homeInteractions = {
+  en: {
+    consoleLines: [
+      { label: "intent", text: "analyze CRM repair request" },
+      { label: "skill", text: "select crm_dispatch_workflow" },
+      { label: "validate", text: "check customer, task, and technician data" },
+      { label: "tool", text: "call route_planning_api" },
+      { label: "state", text: "update scheduling workflow context" },
+      { label: "result", text: "return structured operation summary" },
+    ],
+    command: "$ run crm_agent.execute",
+    ready: "workflow ready",
+    canvasEyebrow: "Architecture Canvas",
+    canvasTitle: "Agentic AI, But With System Boundaries",
+    canvasDescription:
+      "Hover or tap a layer to see how AI reasoning connects to stable backend execution.",
+    selectedLayer: "Selected Layer",
+    architectureLayers: [
+      {
+        title: "Agent Layer",
+        subtitle: "Interprets task intent",
+        detail:
+          "The agent decides what capability is needed without owning every execution detail.",
+        icon: Bot,
+      },
+      {
+        title: "Skill Layer",
+        subtitle: "Packages reusable capabilities",
+        detail:
+          "Skills expose stable actions such as dispatch lookup, scheduling, notifications, and route planning.",
+        icon: Layers3,
+      },
+      {
+        title: "Workflow Layer",
+        subtitle: "Controls deterministic execution",
+        detail:
+          "Workflow nodes handle conditions, state, validation, API calls, and LLM steps in a traceable order.",
+        icon: Workflow,
+      },
+      {
+        title: "Integration Layer",
+        subtitle: "Connects enterprise systems",
+        detail:
+          "Backend APIs, CRM services, and map data provide the real operational execution surface.",
+        icon: Database,
+      },
+    ],
+    capabilities: [
+      {
+        title: "AI Workflow Engineering",
+        description:
+          "Designing LLM-assisted workflows where reasoning and deterministic execution each have clear ownership.",
+        tags: ["LLM Nodes", "State", "Conditions"],
+        icon: GitBranch,
+      },
+      {
+        title: "Backend Integration",
+        description:
+          "Building API-backed services that let agents operate through stable, validated system boundaries.",
+        tags: ["REST APIs", "OpenAPI", "Validation"],
+        icon: Braces,
+      },
+      {
+        title: "Enterprise Automation",
+        description:
+          "Turning CRM operations such as dispatch, scheduling, notification, and route planning into repeatable flows.",
+        tags: ["CRM", "Scheduling", "Maps"],
+        icon: Map,
+      },
+    ],
   },
-  {
-    title: "Skill Layer",
-    subtitle: "Packages reusable capabilities",
-    detail:
-      "Skills expose stable actions such as dispatch lookup, scheduling, notifications, and route planning.",
-    icon: Layers3,
+  zh: {
+    consoleLines: [
+      { label: "意圖", text: "分析 CRM 維修需求" },
+      { label: "技能", text: "選擇 crm_dispatch_workflow" },
+      { label: "驗證", text: "確認客戶、任務與工程師資料" },
+      { label: "工具", text: "呼叫 route_planning_api" },
+      { label: "狀態", text: "更新排程工作流程上下文" },
+      { label: "結果", text: "回傳結構化作業摘要" },
+    ],
+    command: "$ run crm_agent.execute",
+    ready: "workflow ready",
+    canvasEyebrow: "架構畫布",
+    canvasTitle: "有系統邊界的 Agentic AI",
+    canvasDescription:
+      "滑過或點選每一層，看看 AI 推理如何銜接穩定的後端執行。",
+    selectedLayer: "目前選取",
+    architectureLayers: [
+      {
+        title: "Agent 層",
+        subtitle: "理解任務意圖",
+        detail:
+          "Agent 判斷需要哪一種能力，但不把所有執行細節都放在自己身上。",
+        icon: Bot,
+      },
+      {
+        title: "Skill 層",
+        subtitle: "封裝可重用能力",
+        detail:
+          "Skill 提供派工查詢、排程、通知與路線規劃等穩定動作。",
+        icon: Layers3,
+      },
+      {
+        title: "Workflow 層",
+        subtitle: "控制可預期的執行",
+        detail:
+          "Workflow 節點用可追蹤的順序處理條件、狀態、驗證、API 呼叫與 LLM 步驟。",
+        icon: Workflow,
+      },
+      {
+        title: "整合層",
+        subtitle: "串接企業系統",
+        detail:
+          "後端 API、CRM 服務與地圖資料提供實際營運流程所需的執行介面。",
+        icon: Database,
+      },
+    ],
+    capabilities: [
+      {
+        title: "AI 工作流程工程",
+        description:
+          "設計 LLM 輔助流程，讓推理與確定性執行各自有清楚的責任邊界。",
+        tags: ["LLM 節點", "狀態", "條件"],
+        icon: GitBranch,
+      },
+      {
+        title: "後端整合",
+        description:
+          "建立 API 支援的服務，讓 agents 透過穩定、可驗證的系統邊界操作。",
+        tags: ["REST APIs", "OpenAPI", "Validation"],
+        icon: Braces,
+      },
+      {
+        title: "企業流程自動化",
+        description:
+          "把派工、排程、通知與路線規劃等 CRM 作業轉成可重複執行的流程。",
+        tags: ["CRM", "排程", "地圖"],
+        icon: Map,
+      },
+    ],
   },
-  {
-    title: "Workflow Layer",
-    subtitle: "Controls deterministic execution",
-    detail:
-      "Workflow nodes handle conditions, state, validation, API calls, and LLM steps in a traceable order.",
-    icon: Workflow,
-  },
-  {
-    title: "Integration Layer",
-    subtitle: "Connects enterprise systems",
-    detail:
-      "Backend APIs, CRM services, and map data provide the real operational execution surface.",
-    icon: Database,
-  },
-];
-
-const capabilities = [
-  {
-    title: "AI Workflow Engineering",
-    description:
-      "Designing LLM-assisted workflows where reasoning and deterministic execution each have clear ownership.",
-    tags: ["LLM Nodes", "State", "Conditions"],
-    icon: GitBranch,
-  },
-  {
-    title: "Backend Integration",
-    description:
-      "Building API-backed services that let agents operate through stable, validated system boundaries.",
-    tags: ["REST APIs", "OpenAPI", "Validation"],
-    icon: Braces,
-  },
-  {
-    title: "Enterprise Automation",
-    description:
-      "Turning CRM operations such as dispatch, scheduling, notification, and route planning into repeatable flows.",
-    tags: ["CRM", "Scheduling", "Maps"],
-    icon: Map,
-  },
-];
+};
 
 export function HeroBackground() {
   return (
@@ -90,16 +170,18 @@ export function HeroBackground() {
 
 export function AgentConsole() {
   const [visibleCount, setVisibleCount] = useState(1);
+  const { language } = useLanguage();
+  const text = homeInteractions[language];
 
   useEffect(() => {
     const id = window.setInterval(() => {
       setVisibleCount((count) =>
-        count >= consoleLines.length ? 1 : count + 1,
+        count >= text.consoleLines.length ? 1 : count + 1,
       );
     }, 900);
 
     return () => window.clearInterval(id);
-  }, []);
+  }, [text.consoleLines.length]);
 
   return (
     <div className="flex h-[420px] flex-col rounded-2xl border border-slate-800 bg-slate-950 p-4 text-slate-100 shadow-2xl shadow-indigo-950/15">
@@ -115,9 +197,9 @@ export function AgentConsole() {
       </div>
 
       <div className="flex min-h-0 flex-1 flex-col font-mono text-xs leading-5">
-        <div className="text-slate-500">$ run crm_agent.execute</div>
+        <div className="text-slate-500">{text.command}</div>
         <div className="mt-4 grid flex-1 grid-rows-6 gap-2">
-          {consoleLines.map((line, index) => {
+          {text.consoleLines.map((line, index) => {
             const isVisible = index < visibleCount;
 
             return (
@@ -138,7 +220,7 @@ export function AgentConsole() {
         </div>
         <div className="mt-3 flex shrink-0 items-center gap-2 text-emerald-300">
           <CheckCircle2 className="h-4 w-4" />
-          <span>workflow ready</span>
+          <span>{text.ready}</span>
           <span className="h-4 w-2 animate-pulse bg-emerald-300/70" />
         </div>
       </div>
@@ -148,7 +230,9 @@ export function AgentConsole() {
 
 export function ArchitectureCanvas() {
   const [activeIndex, setActiveIndex] = useState(1);
-  const activeLayer = architectureLayers[activeIndex];
+  const { language } = useLanguage();
+  const text = homeInteractions[language];
+  const activeLayer = text.architectureLayers[activeIndex];
 
   return (
     <section className="max-w-6xl mx-auto px-6 pb-20">
@@ -156,21 +240,20 @@ export function ArchitectureCanvas() {
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-xs font-medium uppercase tracking-widest text-indigo-600">
-              Architecture Canvas
+              {text.canvasEyebrow}
             </p>
             <h2 className="mt-1 text-xl font-semibold tracking-tight text-gray-950">
-              Agentic AI, But With System Boundaries
+              {text.canvasTitle}
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-6 text-gray-600">
-            Hover or tap a layer to see how AI reasoning connects to stable
-            backend execution.
+            {text.canvasDescription}
           </p>
         </div>
 
         <div className="grid gap-4 lg:grid-cols-[1fr_280px]">
           <div className="grid gap-3 sm:grid-cols-4">
-            {architectureLayers.map((layer, index) => {
+            {text.architectureLayers.map((layer, index) => {
               const Icon = layer.icon;
               const isActive = index === activeIndex;
 
@@ -204,7 +287,7 @@ export function ArchitectureCanvas() {
                   <p className="mt-2 line-clamp-2 text-xs leading-5 text-gray-600">
                     {layer.subtitle}
                   </p>
-                  {index < architectureLayers.length - 1 ? (
+                  {index < text.architectureLayers.length - 1 ? (
                     <ArrowRight className="pointer-events-none absolute -right-3 top-1/2 z-10 hidden h-5 w-5 -translate-y-1/2 text-gray-300 sm:block" />
                   ) : null}
                 </button>
@@ -217,7 +300,7 @@ export function ArchitectureCanvas() {
               <GitBranch className="h-5 w-5" />
             </div>
             <p className="text-xs uppercase tracking-widest text-indigo-200">
-              Selected Layer
+              {text.selectedLayer}
             </p>
             <h3 className="mt-2 text-lg font-semibold">
               {activeLayer.title}
@@ -233,9 +316,12 @@ export function ArchitectureCanvas() {
 }
 
 export function CapabilityCards() {
+  const { language } = useLanguage();
+  const text = homeInteractions[language];
+
   return (
     <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-      {capabilities.map((capability) => {
+      {text.capabilities.map((capability) => {
         const Icon = capability.icon;
 
         return (
