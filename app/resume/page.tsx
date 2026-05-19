@@ -158,9 +158,9 @@ const resumeText = {
   },
   zh: {
     availability: "開放軟體工程相關機會",
-    title: "AI Application Engineer，專注企業 AI agents 與後端整合工作流程自動化。",
+    title: "AI Application Engineer，專注企業 AI agents、後端整合與工作流程自動化。",
     intro:
-      "我建立 CRM 自動化系統，把 LLM 工作流程、後端服務、企業 API 與營運資料串成可維護的執行管線。",
+      "我建立 CRM 自動化系統，將 LLM 工作流程、後端服務、企業 API 與營運資料整合成穩定、可維護的自動化流程。",
     profileStats: [
       { label: "目前重點", value: "企業 AI agents" },
       { label: "核心技術", value: "Python, C#, REST APIs" },

@@ -145,13 +145,13 @@ const projectsText: Record<
       eyebrow: "作品集",
       title: "專案與案例研究",
       description:
-        "公開 repo 展示實作能力；案例研究則整理無法公開原始碼的專業架構工作。",
+        "公開 repo 展示實作能力；案例研究整理真實專案中的架構思考、技術取捨與落地成果。",
     },
     caseHeader: {
       eyebrow: "案例研究",
       title: "專業架構工作",
       description:
-        "把真實工程經驗整理成架構決策、取捨與成果，而不是揭露機密原始碼。",
+        "把真實工程經驗整理成架構決策、技術取捨與落地成果。",
     },
     repoHeader: {
       eyebrow: "GitHub 專案",
