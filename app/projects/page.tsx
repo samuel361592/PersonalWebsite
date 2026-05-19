@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { ArrowRight, ExternalLink, Github, Layers3 } from "lucide-react";
 
-type Project = {
+type PublicProject = {
   title: string;
   description: string;
   tech: string[];
@@ -14,7 +15,35 @@ type ProjectRepo = {
   url: string;
 };
 
-const projects: Project[] = [
+type CaseStudy = {
+  title: string;
+  description: string;
+  href: string;
+  tags: string[];
+  outcomes: string[];
+};
+
+const caseStudies: CaseStudy[] = [
+  {
+    title: "CRM Agentic AI Architecture Evolution",
+    description:
+      "A professional architecture case study about evolving enterprise CRM automation from prompt-based API calls into reusable skill-based agent workflows.",
+    href: "/projects/crm-agentic-ai",
+    tags: [
+      "Enterprise AI",
+      "Agentic Workflows",
+      "Skill-Based Architecture",
+      "CRM Automation",
+    ],
+    outcomes: [
+      "Moved critical workflow control out of prompts and into deterministic execution paths.",
+      "Separated agent responsibilities for querying, validation, notification, and route planning.",
+      "Introduced reusable AI skills that can wrap workflows, APIs, and LLM steps behind stable capabilities.",
+    ],
+  },
+];
+
+const publicProjects: PublicProject[] = [
   {
     title: "Personal Website",
     description:
@@ -23,28 +52,21 @@ const projects: Project[] = [
     githubUrl: "https://github.com/samuel361592/PersonalWebsite.git",
     demoUrl: "https://samuel-chen.com",
   },
-    {
-  title: "Social Platform (Auth & RBAC)",
-  description:
-    "A full-stack social platform built to practice authentication, authorization, and CRUD operations. Supports user registration, JWT-based login, role-based access control, and post ownership validation.",
-  tech: [
-    "Next.js",
-    "NestJS",
-    "TypeORM",
-    "JWT",
-    "RBAC",
-    "MySQL"
-  ],
-  repos: [
-    {
-      label: "Frontend",
-      url: "https://github.com/samuel361592/NextJS_frontend.git",
-    },
-    {
-      label: "Backend",
-      url: "https://github.com/samuel361592/NestJS_backend.git",
-    },
-  ],
+  {
+    title: "Social Platform (Auth & RBAC)",
+    description:
+      "A full-stack social platform built to practice authentication, authorization, and CRUD operations. Supports user registration, JWT-based login, role-based access control, and post ownership validation.",
+    tech: ["Next.js", "NestJS", "TypeORM", "JWT", "RBAC", "MySQL"],
+    repos: [
+      {
+        label: "Frontend",
+        url: "https://github.com/samuel361592/NextJS_frontend.git",
+      },
+      {
+        label: "Backend",
+        url: "https://github.com/samuel361592/NestJS_backend.git",
+      },
+    ],
   },
   {
     title: "Todo CLI",
@@ -71,185 +93,199 @@ const projects: Project[] = [
 
 export default function ProjectsPage() {
   return (
-    <section>
-      <div className="mb-10">
-        <h1 className="text-3xl font-bold tracking-tight">Projects</h1>
-        <p className="text-sm text-gray-500 mt-2">
-          Selected work — built for real usage, maintainability, and iteration.
+    <div className="py-10">
+      <section className="mb-12">
+        <p className="text-xs font-medium uppercase tracking-widest text-indigo-600">
+          Work Portfolio
+        </p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-950">
+          Projects & Case Studies
+        </h1>
+        <p className="mt-3 max-w-3xl text-sm leading-6 text-gray-600">
+          Public repositories show implementation practice. Case studies show
+          professional architecture work where source code cannot be shared.
+        </p>
+      </section>
+
+      <section className="mb-16">
+        <SectionHeader
+          eyebrow="Case Studies"
+          title="Professional Architecture Work"
+          description="Real-world engineering work presented as architecture decisions, tradeoffs, and outcomes instead of source code."
+        />
+
+        <div className="grid gap-6">
+          {caseStudies.map((study) => (
+            <article
+              key={study.title}
+              className="group relative overflow-hidden rounded-2xl border border-indigo-100 bg-gradient-to-br from-white via-indigo-50/40 to-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <div className="pointer-events-none absolute -right-16 -top-20 h-44 w-44 rounded-full bg-indigo-100/70 blur-3xl" />
+
+              <div className="relative grid gap-6 lg:grid-cols-[1fr_280px]">
+                <div>
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-indigo-600 text-white shadow-sm">
+                    <Layers3 className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-2xl font-semibold tracking-tight text-gray-950">
+                    {study.title}
+                  </h2>
+                  <p className="mt-3 max-w-2xl text-sm leading-6 text-gray-600">
+                    {study.description}
+                  </p>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {study.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-md bg-white px-2.5 py-1 text-xs text-indigo-700 ring-1 ring-indigo-100"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-xl border border-white/70 bg-white/75 p-4 backdrop-blur">
+                  <p className="mb-3 text-xs font-medium uppercase tracking-widest text-gray-400">
+                    What it shows
+                  </p>
+                  <ul className="space-y-3 text-sm leading-6 text-gray-600">
+                    {study.outcomes.map((outcome) => (
+                      <li key={outcome}>{outcome}</li>
+                    ))}
+                  </ul>
+                  <Link
+                    href={study.href}
+                    className="mt-5 inline-flex items-center gap-2 rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-indigo-700"
+                  >
+                    Read Case Study
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                  </Link>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <SectionHeader
+          eyebrow="GitHub Projects"
+          title="Public Repositories"
+          description="Code-first projects that can be inspected directly through GitHub or live demos."
+        />
+
+        <div className="grid gap-6 sm:grid-cols-2">
+          {publicProjects.map((project) => (
+            <PublicProjectCard key={project.title} project={project} />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function SectionHeader({
+  eyebrow,
+  title,
+  description,
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="mb-6">
+      <p className="text-xs font-medium uppercase tracking-widest text-indigo-600">
+        {eyebrow}
+      </p>
+      <h2 className="mt-1 text-xl font-semibold tracking-tight text-gray-950">
+        {title}
+      </h2>
+      <p className="mt-2 max-w-2xl text-sm leading-6 text-gray-600">
+        {description}
+      </p>
+    </div>
+  );
+}
+
+function PublicProjectCard({ project }: { project: PublicProject }) {
+  return (
+    <article className="group relative flex min-h-72 flex-col overflow-hidden rounded-xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-lg">
+      <div className="pointer-events-none absolute -top-1/2 right-[-30%] z-20 h-[220%] w-24 bg-gradient-to-r from-transparent via-white/80 to-transparent opacity-0 blur-[1px] group-hover:[animation:cardShimmer_900ms_ease-out_1]" />
+      <div className="pointer-events-none absolute -inset-20 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.16),transparent_45%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-transparent via-gray-200 to-transparent opacity-60" />
+
+      <div className="relative">
+        <h3 className="text-xl font-semibold tracking-tight text-gray-950">
+          {project.title}
+        </h3>
+        <p className="mt-3 text-sm leading-6 text-gray-600">
+          {project.description}
         </p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2">
-        {projects.map((p) => (
-          <div
-            key={p.title}
-            className="
-              group relative overflow-hidden
-              rounded-xl border bg-white p-6
-              transition-all duration-300
-              hover:-translate-y-1 hover:shadow-lg
-              hover:border-gray-200
-              flex flex-col
-            "
-          >
+      <div className="relative mt-auto pt-5">
+        <div className="mb-4 flex flex-wrap gap-2">
+          {project.tech.map((tech) => (
+            <span
+              key={tech}
+              className="rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-700 transition group-hover:bg-gray-50"
+              title={tech}
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
 
-            {/* shimmer effect */}
-            <div
-              className="
-                pointer-events-none
-                absolute -top-1/2 right-[-30%]
-                h-[220%] w-24
-                bg-gradient-to-r from-transparent via-white/80 to-transparent
-                blur-[1px]
-                opacity-0
-                z-20
-                group-hover:[animation:cardShimmer_900ms_ease-out_1]
-                "
-            />
-            {/* soft glow */}
-            <div
-              className="
-                pointer-events-none absolute -inset-20 opacity-0
-                bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.20),transparent_45%)]
-                transition-opacity duration-300
-                group-hover:opacity-100
-              "
-            />
+        <div className="flex flex-wrap items-center gap-4 text-xs">
+          {project.repos?.map((repo) => (
+            <ProjectLink key={repo.url} href={repo.url} icon="github">
+              {repo.label}
+            </ProjectLink>
+          ))}
 
-            {/* subtle top highlight line */}
-            <div
-              className="
-                pointer-events-none absolute left-0 top-0 h-[2px] w-full
-                bg-gradient-to-r from-transparent via-gray-200 to-transparent
-                opacity-60
-              "
-            />
+          {!project.repos && project.githubUrl ? (
+            <ProjectLink href={project.githubUrl} icon="github">
+              GitHub
+            </ProjectLink>
+          ) : null}
 
-            {/* content */}
-            <h2 className="text-xl font-semibold tracking-tight mb-2 relative">
-              {p.title}
-            </h2>
-
-            <p className="text-gray-600 mb-5 leading-relaxed relative">
-              {p.description}
-            </p>
-
-            {/* footer pinned */}
-            <div className="mt-auto relative">
-              <div className="flex flex-wrap gap-2 mb-4">
-                {p.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="
-                      text-xs px-2 py-1 rounded-md
-                      bg-gray-100 text-gray-700
-                      transition
-                      group-hover:bg-gray-50
-                      hover:bg-gray-200
-                    "
-                    title={t}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-4 text-xs">
-                {/* multi-repo projects */}
-                {p.repos?.map((repo) => (
-                  <a
-                    key={repo.url}
-                    href={repo.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                      inline-flex items-center gap-1
-                      text-gray-500 hover:text-gray-900
-                      transition
-                    "
-                  >
-                    <GitHubIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-[1px]" />
-                    <span className="relative">
-                      {repo.label}
-                      <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-gray-900 transition-all duration-300 group-hover:w-full" />
-                    </span>
-                  </a>
-                ))}
-
-                {/* fallback single repo */}
-                {!p.repos && p.githubUrl ? (
-                  <a
-                    href={p.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                      inline-flex items-center gap-1
-                      text-gray-500 hover:text-gray-900
-                      transition
-                    "
-                  >
-                    <GitHubIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-[1px]" />
-                    <span className="relative">
-                      GitHub
-                      <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-gray-900 transition-all duration-300 group-hover:w-full" />
-                    </span>
-                  </a>
-                ) : null}
-
-                {/* demo */}
-                {p.demoUrl ? (
-                  <a
-                    href={p.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                      inline-flex items-center gap-1
-                      text-gray-500 hover:text-gray-900
-                      transition
-                    "
-                  >
-                    <ExternalLinkIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-[1px]" />
-                    <span className="relative">
-                      Live
-                      <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-gray-900 transition-all duration-300 group-hover:w-full" />
-                    </span>
-                  </a>
-                ) : null}
-              </div>
-
-              {/* corner shimmer */}
-              <div
-                className="
-                  pointer-events-none absolute -right-14 -bottom-14
-                  h-40 w-40 rounded-full
-                  bg-gradient-to-tr from-gray-200/40 via-white/40 to-transparent
-                  blur-2xl
-                  opacity-0 transition-opacity duration-300
-                  group-hover:opacity-100
-                "
-              />
-            </div>
-          </div>
-        ))}
+          {project.demoUrl ? (
+            <ProjectLink href={project.demoUrl} icon="external">
+              Live
+            </ProjectLink>
+          ) : null}
+        </div>
       </div>
-    </section>
+    </article>
   );
 }
 
-/* ICONS */
-function GitHubIcon({ className }: { className?: string }) {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className={className} fill="currentColor">
-      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.02c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.305 3.495.998.108-.776.42-1.305.763-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.236-3.22-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.289-1.552 3.295-1.23 3.295-1.23.655 1.653.242 2.873.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.807 5.624-5.479 5.92.432.372.816 1.102.816 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z" />
-    </svg>
-  );
-}
+function ProjectLink({
+  href,
+  icon,
+  children,
+}: {
+  href: string;
+  icon: "github" | "external";
+  children: React.ReactNode;
+}) {
+  const Icon = icon === "github" ? Github : ExternalLink;
 
-function ExternalLinkIcon({ className }: { className?: string }) {
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className={className} fill="currentColor">
-      <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z" />
-      <path d="M5 5h6V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6h-2v6H5V5z" />
-    </svg>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1 text-gray-500 transition hover:text-gray-950"
+    >
+      <Icon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-[1px]" />
+      <span className="relative">
+        {children}
+        <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-gray-900 transition-all duration-300 group-hover:w-full" />
+      </span>
+    </a>
   );
 }
