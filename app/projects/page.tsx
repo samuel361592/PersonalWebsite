@@ -116,6 +116,7 @@ const projectsText: Record<
             url: "https://github.com/samuel361592/NestJS_backend.git",
           },
         ],
+        demoUrl: "https://nextjsfrontend-green.vercel.app/",
       },
       {
         title: "Todo CLI",
@@ -198,6 +199,7 @@ const projectsText: Record<
             url: "https://github.com/samuel361592/NestJS_backend.git",
           },
         ],
+        demoUrl: "https://nextjsfrontend-green.vercel.app/",
       },
       {
         title: "Todo CLI",
