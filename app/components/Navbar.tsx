@@ -10,12 +10,12 @@ const navLabels = {
   en: [
     { href: "/", label: "Home" },
     { href: "/projects", label: "Projects" },
-    { href: "/resume", label: "Resume" },
+    { href: "/resume", label: "About" },
   ],
   zh: [
     { href: "/", label: "首頁" },
     { href: "/projects", label: "專案" },
-    { href: "/resume", label: "履歷" },
+    { href: "/resume", label: "關於我" },
   ],
 };
 
