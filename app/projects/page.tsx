@@ -233,13 +233,13 @@ export default function ProjectsPage() {
   return (
     <div className="py-10">
       <section className="mb-12">
-        <p className="text-xs font-medium uppercase tracking-widest text-indigo-600">
+        <p className="text-xs font-medium uppercase tracking-widest text-accent">
           {text.hero.eyebrow}
         </p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-950">
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-foreground">
           {text.hero.title}
         </h1>
-        <p className="mt-3 max-w-3xl text-sm leading-6 text-gray-600">
+        <p className="mt-3 max-w-3xl text-sm leading-6 text-muted">
           {text.hero.description}
         </p>
       </section>
@@ -255,19 +255,19 @@ export default function ProjectsPage() {
           {text.caseStudies.map((study) => (
             <article
               key={study.title}
-              className="group relative overflow-hidden rounded-2xl border border-indigo-100 bg-gradient-to-br from-white via-indigo-50/40 to-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-md"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-card via-accent-soft/45 to-card p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-accent hover:shadow-md"
             >
-              <div className="pointer-events-none absolute -right-16 -top-20 h-44 w-44 rounded-full bg-indigo-100/70 blur-3xl" />
+              <div className="pointer-events-none absolute -right-16 -top-20 h-44 w-44 rounded-full bg-accent-soft/70 blur-3xl" />
 
               <div className="relative grid gap-6 lg:grid-cols-[1fr_280px]">
                 <div>
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-indigo-600 text-white shadow-sm">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-accent text-white shadow-sm">
                     <Layers3 className="h-5 w-5" />
                   </div>
-                  <h2 className="text-2xl font-semibold tracking-tight text-gray-950">
+                  <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                     {study.title}
                   </h2>
-                  <p className="mt-3 max-w-2xl text-sm leading-6 text-gray-600">
+                  <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">
                     {study.description}
                   </p>
 
@@ -275,7 +275,7 @@ export default function ProjectsPage() {
                     {study.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-md bg-white px-2.5 py-1 text-xs text-indigo-700 ring-1 ring-indigo-100"
+                        className="rounded-md bg-card px-2.5 py-1 text-xs text-accent ring-1 ring-border"
                       >
                         {tag}
                       </span>
@@ -283,18 +283,18 @@ export default function ProjectsPage() {
                   </div>
                 </div>
 
-                <div className="rounded-xl border border-white/70 bg-white/75 p-4 backdrop-blur">
-                  <p className="mb-3 text-xs font-medium uppercase tracking-widest text-gray-400">
+                <div className="rounded-xl border border-border bg-card/75 p-4 backdrop-blur">
+                  <p className="mb-3 text-xs font-medium uppercase tracking-widest text-muted">
                     {text.whatItShows}
                   </p>
-                  <ul className="space-y-3 text-sm leading-6 text-gray-600">
+                  <ul className="space-y-3 text-sm leading-6 text-muted">
                     {study.outcomes.map((outcome) => (
                       <li key={outcome}>{outcome}</li>
                     ))}
                   </ul>
                   <Link
                     href={study.href}
-                    className="mt-5 inline-flex items-center gap-2 rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-indigo-700"
+                    className="mt-5 inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium text-white transition hover:bg-accent-hover"
                   >
                     {text.readCaseStudy}
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
@@ -338,13 +338,13 @@ function SectionHeader({
 }) {
   return (
     <div className="mb-6">
-      <p className="text-xs font-medium uppercase tracking-widest text-indigo-600">
+      <p className="text-xs font-medium uppercase tracking-widest text-accent">
         {eyebrow}
       </p>
-      <h2 className="mt-1 text-xl font-semibold tracking-tight text-gray-950">
+      <h2 className="mt-1 text-xl font-semibold tracking-tight text-foreground">
         {title}
       </h2>
-      <p className="mt-2 max-w-2xl text-sm leading-6 text-gray-600">
+      <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
         {description}
       </p>
     </div>
@@ -359,16 +359,16 @@ function PublicProjectCard({
   liveLabel: string;
 }) {
   return (
-    <article className="group relative flex min-h-72 flex-col overflow-hidden rounded-xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-lg">
-      <div className="pointer-events-none absolute -top-1/2 right-[-30%] z-20 h-[220%] w-24 bg-gradient-to-r from-transparent via-white/80 to-transparent opacity-0 blur-[1px] group-hover:[animation:cardShimmer_900ms_ease-out_1]" />
+    <article className="group relative flex min-h-72 flex-col overflow-hidden rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-lg">
+      <div className="pointer-events-none absolute -top-1/2 right-[-30%] z-20 h-[220%] w-24 bg-gradient-to-r from-transparent via-card/80 to-transparent opacity-0 blur-[1px] group-hover:[animation:cardShimmer_900ms_ease-out_1]" />
       <div className="pointer-events-none absolute -inset-20 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.16),transparent_45%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-      <div className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-transparent via-gray-200 to-transparent opacity-60" />
+      <div className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-transparent via-border to-transparent opacity-60" />
 
       <div className="relative">
-        <h3 className="text-xl font-semibold tracking-tight text-gray-950">
+        <h3 className="text-xl font-semibold tracking-tight text-foreground">
           {project.title}
         </h3>
-        <p className="mt-3 text-sm leading-6 text-gray-600">
+        <p className="mt-3 text-sm leading-6 text-muted">
           {project.description}
         </p>
       </div>
@@ -378,7 +378,7 @@ function PublicProjectCard({
           {project.tech.map((tech) => (
             <span
               key={tech}
-              className="rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-700 transition group-hover:bg-gray-50"
+              className="rounded-md bg-card-muted px-2 py-1 text-xs text-muted transition group-hover:bg-accent-soft group-hover:text-accent"
               title={tech}
             >
               {tech}
@@ -426,12 +426,12 @@ function ProjectLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-1 text-gray-500 transition hover:text-gray-950"
+      className="inline-flex items-center gap-1 text-muted transition hover:text-foreground"
     >
       <Icon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-[1px]" />
       <span className="relative">
         {children}
-        <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-gray-900 transition-all duration-300 group-hover:w-full" />
+        <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-foreground transition-all duration-300 group-hover:w-full" />
       </span>
     </a>
   );

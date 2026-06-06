@@ -339,24 +339,24 @@ export default function CrmAgenticAiCaseStudyPage() {
     <div className="py-10">
       <Link
         href="/projects"
-        className="mb-8 inline-flex items-center gap-2 text-sm text-gray-500 transition hover:text-gray-950"
+        className="mb-8 inline-flex items-center gap-2 text-sm text-muted transition hover:text-foreground"
       >
         <ArrowLeft className="h-4 w-4" />
         {text.back}
       </Link>
 
-      <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
+      <section className="rounded-2xl border border-border bg-card p-6 shadow-sm md:p-8">
         <div className="max-w-3xl">
-          <p className="text-xs font-medium uppercase tracking-widest text-indigo-600">
+          <p className="text-xs font-medium uppercase tracking-widest text-accent">
             {text.hero.eyebrow}
           </p>
-          <h1 className="mt-3 text-4xl font-bold tracking-tight text-gray-950 md:text-5xl">
+          <h1 className="mt-3 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
             {text.hero.title}
           </h1>
-          <p className="mt-4 text-lg font-medium leading-8 text-gray-800">
+          <p className="mt-4 text-lg font-medium leading-8 text-foreground">
             {text.hero.subtitle}
           </p>
-          <p className="mt-4 text-sm leading-7 text-gray-600">
+          <p className="mt-4 text-sm leading-7 text-muted">
             {text.hero.description}
           </p>
         </div>
@@ -365,12 +365,12 @@ export default function CrmAgenticAiCaseStudyPage() {
           {text.hero.stats.map(([label, value]) => (
             <div
               key={label}
-              className="rounded-lg border border-gray-200 bg-gray-50 p-4"
+              className="rounded-lg border border-border bg-card-muted p-4"
             >
-              <p className="text-xs uppercase tracking-wide text-gray-500">
+              <p className="text-xs uppercase tracking-wide text-muted">
                 {label}
               </p>
-              <p className="mt-1 text-sm font-medium text-gray-950">{value}</p>
+              <p className="mt-1 text-sm font-medium text-foreground">{value}</p>
             </div>
           ))}
         </div>
@@ -383,23 +383,23 @@ export default function CrmAgenticAiCaseStudyPage() {
           {text.evolutionStages.map((stage) => (
             <article
               key={stage.title}
-              className="grid gap-5 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm md:grid-cols-[190px_1fr] md:p-6"
+              className="grid gap-5 rounded-2xl border border-border bg-card p-5 shadow-sm md:grid-cols-[190px_1fr] md:p-6"
             >
               <div>
-                <p className="text-xs font-medium uppercase tracking-widest text-indigo-600">
+                <p className="text-xs font-medium uppercase tracking-widest text-accent">
                   {stage.stage}
                 </p>
-                <h2 className="mt-2 text-lg font-semibold text-gray-950">
+                <h2 className="mt-2 text-lg font-semibold text-foreground">
                   {stage.title}
                 </h2>
               </div>
 
               <div>
-                <div className="mb-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
-                  <p className="mb-2 text-xs uppercase tracking-widest text-gray-400">
+                <div className="mb-4 rounded-xl border border-border bg-card-muted p-4">
+                  <p className="mb-2 text-xs uppercase tracking-widest text-muted">
                     {text.labels.pattern}
                   </p>
-                  <p className="whitespace-pre-line font-mono text-sm leading-6 text-gray-800">
+                  <p className="whitespace-pre-line font-mono text-sm leading-6 text-foreground">
                     {stage.pattern}
                   </p>
                 </div>
@@ -421,7 +421,7 @@ export default function CrmAgenticAiCaseStudyPage() {
       <section className="mt-10">
         <SectionHeader {...text.sections.flow} />
 
-        <div className="rounded-2xl border border-gray-200 bg-gray-950 p-5 text-white shadow-sm md:p-6">
+        <div className="rounded-2xl border border-border bg-slate-950 p-5 text-white shadow-sm md:p-6">
           <div className="grid gap-3 md:grid-cols-5">
             {text.finalFlow.map((step, index) => (
               <FlowStep
@@ -437,9 +437,9 @@ export default function CrmAgenticAiCaseStudyPage() {
       <section className="mt-10 grid gap-6 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <SectionHeader {...text.sections.comparison} />
-          <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-            <div className="grid grid-cols-2 border-b border-gray-200 bg-gray-50 text-sm font-semibold text-gray-950">
-              <div className="border-r border-gray-200 p-4">
+          <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="grid grid-cols-2 border-b border-border bg-card-muted text-sm font-semibold text-foreground">
+              <div className="border-r border-border p-4">
                 {text.labels.before}
               </div>
               <div className="p-4">{text.labels.after}</div>
@@ -447,12 +447,12 @@ export default function CrmAgenticAiCaseStudyPage() {
             {text.beforeAfter.map(([before, after]) => (
               <div
                 key={before}
-                className="grid grid-cols-2 border-b border-gray-100 last:border-b-0"
+                className="grid grid-cols-2 border-b border-border last:border-b-0"
               >
-                <div className="border-r border-gray-100 p-4 text-sm leading-6 text-gray-600">
+                <div className="border-r border-border p-4 text-sm leading-6 text-muted">
                   {before}
                 </div>
-                <div className="p-4 text-sm leading-6 text-gray-800">
+                <div className="p-4 text-sm leading-6 text-foreground">
                   {after}
                 </div>
               </div>
@@ -466,16 +466,16 @@ export default function CrmAgenticAiCaseStudyPage() {
             {text.capabilityGroups.map((group) => (
               <article
                 key={group.title}
-                className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm"
+                className="rounded-xl border border-border bg-card p-5 shadow-sm"
               >
-                <h3 className="text-sm font-semibold text-gray-950">
+                <h3 className="text-sm font-semibold text-foreground">
                   {group.title}
                 </h3>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {group.items.map((item) => (
                     <span
                       key={item}
-                      className="rounded-md bg-gray-100 px-2.5 py-1 text-xs text-gray-700 ring-1 ring-gray-200"
+                      className="rounded-md bg-card-muted px-2.5 py-1 text-xs text-muted ring-1 ring-border"
                     >
                       {item}
                     </span>
@@ -487,16 +487,16 @@ export default function CrmAgenticAiCaseStudyPage() {
         </aside>
       </section>
 
-      <section className="mt-10 rounded-2xl border border-indigo-100 bg-indigo-50 p-6">
+      <section className="mt-10 rounded-2xl border border-border bg-accent-soft p-6">
         <div className="flex max-w-3xl gap-4">
-          <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-600 text-white">
+          <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent text-white">
             <Route className="h-5 w-5" />
           </div>
           <div>
-            <h2 className="font-semibold text-gray-950">
+            <h2 className="font-semibold text-foreground">
               {text.labels.takeaway}
             </h2>
-            <p className="mt-2 text-sm leading-7 text-gray-700">
+            <p className="mt-2 text-sm leading-7 text-muted">
               {text.takeaway}
             </p>
           </div>
@@ -540,13 +540,13 @@ function SectionHeader({
 }) {
   return (
     <div className="mb-6">
-      <p className="text-xs font-medium uppercase tracking-widest text-indigo-600">
+      <p className="text-xs font-medium uppercase tracking-widest text-accent">
         {eyebrow}
       </p>
-      <h2 className="mt-1 text-xl font-semibold tracking-tight text-gray-950">
+      <h2 className="mt-1 text-xl font-semibold tracking-tight text-foreground">
         {title}
       </h2>
-      <p className="mt-2 max-w-2xl text-sm leading-6 text-gray-600">
+      <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
         {description}
       </p>
     </div>
@@ -556,8 +556,8 @@ function SectionHeader({
 function SignalList({ title, items }: { title: string; items: string[] }) {
   return (
     <div>
-      <h3 className="mb-2 text-sm font-semibold text-gray-950">{title}</h3>
-      <ul className="space-y-2 text-sm leading-6 text-gray-600">
+      <h3 className="mb-2 text-sm font-semibold text-foreground">{title}</h3>
+      <ul className="space-y-2 text-sm leading-6 text-muted">
         {items.map((item) => (
           <li key={item}>{item}</li>
         ))}

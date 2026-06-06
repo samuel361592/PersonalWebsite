@@ -162,9 +162,9 @@ const homeInteractions = {
 export function HeroBackground() {
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-indigo-50/70" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-200 to-transparent" />
-      <div className="absolute left-1/2 top-0 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-indigo-100/40 blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-card-muted to-accent-soft" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+      <div className="absolute left-1/2 top-0 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-accent-soft/60 blur-3xl" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.045)_1px,transparent_1px)] bg-[size:48px_48px]" />
     </div>
   );
@@ -238,17 +238,17 @@ export function ArchitectureCanvas() {
 
   return (
     <section className="max-w-6xl mx-auto px-6 pb-20">
-      <div className="rounded-2xl border border-gray-200 bg-white/75 p-5 shadow-sm backdrop-blur md:p-6">
+      <div className="rounded-2xl border border-border bg-card/75 p-5 shadow-sm backdrop-blur md:p-6">
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-indigo-600">
+            <p className="text-xs font-medium uppercase tracking-widest text-accent">
               {text.canvasEyebrow}
             </p>
-            <h2 className="mt-1 text-xl font-semibold tracking-tight text-gray-950">
+            <h2 className="mt-1 text-xl font-semibold tracking-tight text-foreground">
               {text.canvasTitle}
             </h2>
           </div>
-          <p className="max-w-sm text-sm leading-6 text-gray-600">
+          <p className="max-w-sm text-sm leading-6 text-muted">
             {text.canvasDescription}
           </p>
         </div>
@@ -269,35 +269,35 @@ export function ArchitectureCanvas() {
                   className={[
                     "group relative min-h-36 rounded-xl border p-4 text-left transition duration-300",
                     isActive
-                      ? "border-indigo-200 bg-indigo-50 shadow-sm"
-                      : "border-gray-200 bg-white hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-sm",
+                      ? "border-accent bg-accent-soft shadow-sm"
+                      : "border-border bg-card hover:-translate-y-0.5 hover:border-accent hover:shadow-sm",
                   ].join(" ")}
                 >
                   <div
                     className={[
                       "mb-4 flex h-10 w-10 items-center justify-center rounded-lg transition-colors",
                       isActive
-                        ? "bg-indigo-600 text-white"
-                        : "bg-gray-100 text-gray-600 group-hover:bg-indigo-50 group-hover:text-indigo-700",
+                        ? "bg-accent text-white"
+                        : "bg-card-muted text-muted group-hover:bg-accent-soft group-hover:text-accent",
                     ].join(" ")}
                   >
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="text-sm font-semibold text-gray-950">
+                  <h3 className="text-sm font-semibold text-foreground">
                     {layer.title}
                   </h3>
-                  <p className="mt-2 line-clamp-2 text-xs leading-5 text-gray-600">
+                  <p className="mt-2 line-clamp-2 text-xs leading-5 text-muted">
                     {layer.subtitle}
                   </p>
                   {index < text.architectureLayers.length - 1 ? (
-                    <ArrowRight className="pointer-events-none absolute -right-3 top-1/2 z-10 hidden h-5 w-5 -translate-y-1/2 text-gray-300 sm:block" />
+                    <ArrowRight className="pointer-events-none absolute -right-3 top-1/2 z-10 hidden h-5 w-5 -translate-y-1/2 text-border sm:block" />
                   ) : null}
                 </button>
               );
             })}
           </div>
 
-          <div className="rounded-xl border border-gray-200 bg-gray-950 p-5 text-white">
+          <div className="rounded-xl border border-border bg-slate-950 p-5 text-white">
             <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-indigo-200">
               <GitBranch className="h-5 w-5" />
             </div>
@@ -329,22 +329,22 @@ export function CapabilityCards() {
         return (
           <article
             key={capability.title}
-            className="group rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md"
+            className="group rounded-xl border border-border bg-card p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-accent hover:shadow-md"
           >
-            <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-gray-100 text-gray-700 transition group-hover:bg-indigo-50 group-hover:text-indigo-700">
+            <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-card-muted text-muted transition group-hover:bg-accent-soft group-hover:text-accent">
               <Icon className="h-5 w-5" />
             </div>
-            <h3 className="text-base font-semibold tracking-tight text-gray-950">
+            <h3 className="text-base font-semibold tracking-tight text-foreground">
               {capability.title}
             </h3>
-            <p className="mt-3 text-sm leading-6 text-gray-600">
+            <p className="mt-3 text-sm leading-6 text-muted">
               {capability.description}
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               {capability.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-md bg-gray-100 px-2.5 py-1 text-xs text-gray-700 ring-1 ring-gray-200 transition group-hover:bg-indigo-50 group-hover:text-indigo-700 group-hover:ring-indigo-100"
+                  className="rounded-md bg-card-muted px-2.5 py-1 text-xs text-muted ring-1 ring-border transition group-hover:bg-accent-soft group-hover:text-accent"
                 >
                   {tag}
                 </span>

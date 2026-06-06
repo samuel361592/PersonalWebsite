@@ -15,7 +15,7 @@ const resumeText = {
   en: {
     availability: "Open to software engineering opportunities",
     title:
-      "AI Application Engineer focused on enterprise AI agents and backend-integrated workflow automation.",
+      "AI Engineer focused on enterprise AI agents and backend-integrated workflow automation.",
     intro:
       "I build CRM automation systems that connect LLM workflows, backend services, enterprise APIs, and operational data into maintainable execution pipelines.",
     profileStats: [
@@ -53,7 +53,7 @@ const resumeText = {
     location: "New Taipei City, Taiwan",
     roles: [
       {
-        title: "AI Application Engineer",
+        title: "AI Engineer",
         period: "Jan 2026 - Present",
         summary:
           "Building enterprise AI agent workflows for CRM repair operations, dispatching, scheduling, and route planning.",
@@ -312,8 +312,8 @@ function Pill({
       className={[
         "rounded-md px-2.5 py-1 text-xs transition-colors",
         active
-          ? "bg-indigo-50 text-indigo-700 ring-1 ring-indigo-100"
-          : "bg-gray-100 text-gray-700 ring-1 ring-gray-200",
+          ? "bg-accent-soft text-accent-foreground ring-1 ring-border"
+          : "bg-card-muted text-muted ring-1 ring-border",
       ].join(" ")}
     >
       {children}
@@ -330,10 +330,10 @@ function SectionTitle({
 }) {
   return (
     <div className="mb-5">
-      <p className="text-xs font-medium uppercase tracking-widest text-indigo-600">
+      <p className="text-xs font-medium uppercase tracking-widest text-accent">
         {eyebrow}
       </p>
-      <h2 className="mt-1 text-xl font-semibold tracking-tight text-gray-950">
+      <h2 className="mt-1 text-xl font-semibold tracking-tight text-foreground">
         {title}
       </h2>
     </div>
@@ -346,28 +346,28 @@ export default function ResumePage() {
 
   return (
     <div className="py-10">
-      <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
+      <section className="rounded-2xl border border-border bg-card p-6 shadow-sm md:p-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
-              <span className="h-2 w-2 rounded-full bg-emerald-500" />
+            <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-success-soft px-3 py-1 text-xs font-medium text-success">
+              <span className="h-2 w-2 rounded-full bg-success-dot" />
               {text.availability}
             </p>
-            <h1 className="text-4xl font-bold tracking-tight text-gray-950 md:text-5xl">
+            <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
               Chih-Chi Chen
             </h1>
-            <p className="mt-3 text-lg font-medium text-gray-900">
+            <p className="mt-3 text-lg font-medium text-foreground">
               {text.title}
             </p>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-gray-600">
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
               {text.intro}
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2 text-gray-600 lg:justify-end">
+          <div className="flex flex-wrap gap-2 text-muted lg:justify-end">
             <a
               href="mailto:samuel361592@gmail.com"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-gray-200 bg-white transition hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-card transition hover:border-accent hover:bg-accent-soft hover:text-accent"
               aria-label="Email"
             >
               <Mail className="h-4 w-4" />
@@ -376,7 +376,7 @@ export default function ResumePage() {
               href="https://github.com/samuel361592"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-gray-200 bg-white transition hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-card transition hover:border-accent hover:bg-accent-soft hover:text-accent"
               aria-label="GitHub"
             >
               <Github className="h-4 w-4" />
@@ -385,14 +385,14 @@ export default function ResumePage() {
               href="https://www.linkedin.com/in/samuel361592"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-gray-200 bg-white transition hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-card transition hover:border-accent hover:bg-accent-soft hover:text-accent"
               aria-label="LinkedIn"
             >
               <Linkedin className="h-4 w-4" />
             </a>
             <Link
               href="/resume.pdf"
-              className="inline-flex h-10 items-center gap-2 rounded-md bg-indigo-600 px-4 text-sm font-medium text-white transition hover:bg-indigo-700"
+              className="inline-flex h-10 items-center gap-2 rounded-md bg-accent px-4 text-sm font-medium text-white transition hover:bg-accent-hover"
             >
               <Download className="h-4 w-4" />
               PDF
@@ -404,12 +404,12 @@ export default function ResumePage() {
           {text.profileStats.map((stat) => (
             <div
               key={stat.label}
-              className="rounded-lg border border-gray-200 bg-gray-50 p-4"
+              className="rounded-lg border border-border bg-card-muted p-4"
             >
-              <p className="text-xs uppercase tracking-wide text-gray-500">
+              <p className="text-xs uppercase tracking-wide text-muted">
                 {stat.label}
               </p>
-              <p className="mt-1 text-sm font-medium text-gray-950">
+              <p className="mt-1 text-sm font-medium text-foreground">
                 {stat.value}
               </p>
             </div>
@@ -426,12 +426,12 @@ export default function ResumePage() {
           {text.focusAreas.map((area) => (
             <article
               key={area.title}
-              className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              className="rounded-xl border border-border bg-card p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              <h3 className="text-sm font-semibold text-gray-950">
+              <h3 className="text-sm font-semibold text-foreground">
                 {area.title}
               </h3>
-              <p className="mt-2 text-sm leading-6 text-gray-600">
+              <p className="mt-2 text-sm leading-6 text-muted">
                 {area.description}
               </p>
             </article>
@@ -448,18 +448,18 @@ export default function ResumePage() {
           {text.experiences.map((experience) => (
             <article
               key={experience.company}
-              className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm md:p-6"
+              className="rounded-2xl border border-border bg-card p-5 shadow-sm md:p-6"
             >
-              <div className="mb-5 flex flex-col gap-2 border-b border-gray-100 pb-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="mb-5 flex flex-col gap-2 border-b border-border pb-4 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50 text-indigo-700">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-soft text-accent">
                     <BriefcaseBusiness className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-950">
+                    <h3 className="font-semibold text-foreground">
                       {experience.company}
                     </h3>
-                    <p className="mt-1 flex items-center gap-1 text-xs text-gray-500">
+                    <p className="mt-1 flex items-center gap-1 text-xs text-muted">
                       <MapPin className="h-3.5 w-3.5" />
                       {experience.location}
                     </p>
@@ -474,19 +474,19 @@ export default function ResumePage() {
                     className="grid gap-4 md:grid-cols-[220px_1fr]"
                   >
                     <div>
-                      <h4 className="font-medium text-gray-950">
+                      <h4 className="font-medium text-foreground">
                         {role.title}
                       </h4>
-                      <p className="mt-1 text-sm text-gray-500">
+                      <p className="mt-1 text-sm text-muted">
                         {role.period}
                       </p>
                     </div>
 
                     <div>
-                      <p className="text-sm font-medium leading-6 text-gray-800">
+                      <p className="text-sm font-medium leading-6 text-foreground">
                         {role.summary}
                       </p>
-                      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-gray-600">
+                      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
                         {role.highlights.map((highlight) => (
                           <li key={highlight}>{highlight}</li>
                         ))}
@@ -517,9 +517,9 @@ export default function ResumePage() {
             {text.skillGroups.map((group) => (
               <article
                 key={group.title}
-                className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm"
+                className="rounded-xl border border-border bg-card p-5 shadow-sm"
               >
-                <h3 className="text-sm font-semibold text-gray-950">
+                <h3 className="text-sm font-semibold text-foreground">
                   {group.title}
                 </h3>
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -538,14 +538,14 @@ export default function ResumePage() {
               eyebrow={text.education.eyebrow}
               title={text.education.title}
             />
-            <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-              <h3 className="text-sm font-semibold text-gray-950">
+            <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+              <h3 className="text-sm font-semibold text-foreground">
                 Shih Hsin University
               </h3>
-              <p className="mt-2 text-sm leading-6 text-gray-600">
+              <p className="mt-2 text-sm leading-6 text-muted">
                 {text.degree}
               </p>
-              <p className="mt-1 text-sm text-gray-500">
+              <p className="mt-1 text-sm text-muted">
                 {text.educationPeriod}
               </p>
             </div>
@@ -556,8 +556,8 @@ export default function ResumePage() {
               eyebrow={text.learning.eyebrow}
               title={text.learning.title}
             />
-            <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-              <ul className="space-y-3 text-sm leading-6 text-gray-600">
+            <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+              <ul className="space-y-3 text-sm leading-6 text-muted">
                 {text.certifications.map((certification) => (
                   <li key={certification}>{certification}</li>
                 ))}

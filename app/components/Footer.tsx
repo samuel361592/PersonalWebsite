@@ -16,8 +16,8 @@ export default function Footer() {
   const text = footerText[language];
 
   return (
-    <footer className="mt-16 border-t border-gray-200">
-      <div className="mx-auto flex max-w-6xl justify-between px-6 py-8 text-sm text-gray-500">
+    <footer className="mt-16 border-t border-border">
+      <div className="mx-auto flex max-w-6xl justify-between px-6 py-8 text-sm text-muted">
         <span>© {new Date().getFullYear()} Samuel</span>
         <span>{text.built}</span>
       </div>

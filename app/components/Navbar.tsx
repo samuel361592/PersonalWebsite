@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 import { type Language, useLanguage } from "../lib/language";
 
 const navLabels = {
@@ -35,8 +36,8 @@ export default function Navbar() {
     <header
       className={[
         "sticky top-0 z-50",
-        "border-b border-gray-200/60",
-        "bg-white/70 backdrop-blur-xl",
+        "border-b border-border/70",
+        "bg-background/75 backdrop-blur-xl",
         "transition-shadow duration-300",
         scrolled ? "shadow-sm" : "shadow-none",
       ].join(" ")}
@@ -45,9 +46,9 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="font-semibold tracking-tight text-gray-900 hover:text-indigo-600 transition-colors"
+          className="font-semibold tracking-tight text-foreground transition-colors hover:text-accent"
         >
-          Samuel<span className="text-indigo-600">.</span>
+          Samuel<span className="text-accent">.</span>
         </Link>
 
         {/* Navigation */}
@@ -67,8 +68,8 @@ export default function Navbar() {
                   "group px-3 py-2 rounded-md",
                   "transition-colors duration-200",
                   isActive
-                    ? "text-indigo-700"
-                    : "text-gray-600 hover:text-gray-900",
+                    ? "text-accent"
+                    : "text-muted hover:text-foreground",
                 ].join(" ")}
               >
                 {/* text wrapper */}
@@ -79,7 +80,7 @@ export default function Navbar() {
                   <span
                     className={[
                       "pointer-events-none absolute left-0 right-0 -bottom-[4px] h-[2px] rounded-full",
-                      "bg-indigo-600/60",
+                      "bg-accent/60",
                       "origin-left scale-x-0 opacity-0",
                       "transition-transform transition-opacity duration-200",
                       "group-hover:scale-x-100 group-hover:opacity-100",
@@ -90,7 +91,7 @@ export default function Navbar() {
                   <span
                     className={[
                       "pointer-events-none absolute left-0 right-0 -bottom-[4px] h-[2px] rounded-full",
-                      "bg-indigo-600",
+                      "bg-accent",
                       "transition-opacity duration-200",
                       isActive ? "opacity-100" : "opacity-0",
                     ].join(" ")}
@@ -100,7 +101,7 @@ export default function Navbar() {
             );
           })}
           <div
-            className="ml-2 inline-flex rounded-md border border-gray-200 bg-gray-50 p-0.5"
+            className="ml-2 inline-flex rounded-md border border-border bg-card-muted p-0.5"
             aria-label="Language"
             role="group"
           >
@@ -119,8 +120,8 @@ export default function Navbar() {
                   className={[
                     "rounded px-2.5 py-1.5 text-xs font-medium transition-colors",
                     isActive
-                      ? "bg-white text-indigo-700 shadow-sm"
-                      : "text-gray-500 hover:text-gray-900",
+                      ? "bg-card text-accent shadow-sm"
+                      : "text-muted hover:text-foreground",
                   ].join(" ")}
                 >
                   {option.label}
@@ -128,6 +129,7 @@ export default function Navbar() {
               );
             })}
           </div>
+          <ThemeToggle />
         </div>
       </nav>
     </header>
