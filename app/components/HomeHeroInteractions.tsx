@@ -253,8 +253,8 @@ export function ArchitectureCanvas() {
           </p>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-[1fr_280px]">
-          <div className="grid gap-3 sm:grid-cols-4">
+        <div className="grid gap-4 lg:h-64 lg:grid-cols-[1fr_280px]">
+          <div className="grid gap-3 sm:grid-cols-4 lg:h-full">
             {text.architectureLayers.map((layer, index) => {
               const Icon = layer.icon;
               const isActive = index === activeIndex;
@@ -267,10 +267,10 @@ export function ArchitectureCanvas() {
                   onFocus={() => setActiveIndex(index)}
                   onClick={() => setActiveIndex(index)}
                   className={[
-                    "group relative min-h-36 rounded-xl border p-4 text-left transition duration-300",
+                    "group relative min-h-36 rounded-xl border p-4 text-left transition-colors duration-200 lg:h-full lg:p-5",
                     isActive
                       ? "border-accent bg-accent-soft shadow-sm"
-                      : "border-border bg-card hover:-translate-y-0.5 hover:border-accent hover:shadow-sm",
+                      : "border-border bg-card hover:border-accent hover:shadow-sm",
                   ].join(" ")}
                 >
                   <div
@@ -297,7 +297,7 @@ export function ArchitectureCanvas() {
             })}
           </div>
 
-          <div className="rounded-xl border border-border bg-slate-950 p-5 text-white">
+          <div className="rounded-xl border border-border bg-slate-950 p-5 text-white lg:h-full lg:p-6">
             <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-indigo-200">
               <GitBranch className="h-5 w-5" />
             </div>
