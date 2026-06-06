@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   BriefcaseBusiness,
   Download,
+  ExternalLink,
   Github,
   Linkedin,
   Mail,
@@ -28,6 +29,7 @@ const resumeText = {
     skills: { eyebrow: "Skills", title: "Technical Toolkit" },
     education: { eyebrow: "Education", title: "Background" },
     learning: { eyebrow: "Learning", title: "Certifications" },
+    university: "Shih Hsin University",
     degree: "B.S. in Information Management",
     educationPeriod: "Sep 2021 - Jun 2025",
     focusAreas: [
@@ -134,6 +136,8 @@ const resumeText = {
       "RESTful APIs",
       "OpenAPI / Swagger",
       "ASP.NET Web Forms",
+      "Next.js / React",
+      "NestJS",
     ],
   },
   {
@@ -149,11 +153,42 @@ const resumeText = {
   },
 ],
     certifications: [
-      "Building AI Agents and Agentic Workflows Specialization",
-      "Introduction to Image Generation",
-      "Vertex AI Studio",
-      "Introduction to Responsible AI",
-      "Google Cloud Computing Foundations: Data, ML, and AI",
+      {
+        title: "Machine Learning Operations (MLOps) for Generative AI",
+        issuer: "Google Cloud Skills Boost",
+        url: "https://www.cloudskillsboost.google/public_profiles/37e3b911-f2e5-496b-9445-eb4d4e1bc3f2/badges/15246552?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share",
+      },
+      {
+        title:
+          "Machine Learning Operations (MLOps) with Vertex AI: Model Evaluation",
+        issuer: "Google Cloud Skills Boost",
+        url: "https://www.cloudskillsboost.google/public_profiles/37e3b911-f2e5-496b-9445-eb4d4e1bc3f2/badges/15276777?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share",
+      },
+      {
+        title: "Foundations of Software Testing and Validation",
+        issuer: "University of Leeds",
+        url: "https://www.futurelearn.com/certificates/p5z19cq",
+      },
+      {
+        title: "Prompt Design in Vertex AI",
+        issuer: "Google Cloud Skills Boost",
+        url: "https://www.cloudskillsboost.google/public_profiles/37e3b911-f2e5-496b-9445-eb4d4e1bc3f2/badges/17171695?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share",
+      },
+      {
+        title: "Data Manipulation and Transactions in SQL Server",
+        issuer: "Microsoft",
+        url: "https://www.coursera.org/account/accomplishments/records/PV0LL3K6KOYX",
+      },
+      {
+        title: "Building AI Agents and Agentic Workflows Specialization",
+        issuer: "IBM",
+        url: "https://www.coursera.org/account/accomplishments/specialization/NKAJPVE4MFR2",
+      },
+      {
+        title: "Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI",
+        issuer: "IBM",
+        url: "https://www.coursera.org/account/accomplishments/records/OXWMFAC98ECW",
+      },
     ],
   },
   zh: {
@@ -171,6 +206,7 @@ const resumeText = {
     skills: { eyebrow: "技能", title: "技術工具箱" },
     education: { eyebrow: "學歷", title: "背景" },
     learning: { eyebrow: "學習", title: "證照與課程" },
+    university: "世新大學",
     degree: "資訊管理學系 學士",
     educationPeriod: "2021 年 9 月 - 2025 年 6 月",
     focusAreas: [
@@ -276,6 +312,8 @@ const resumeText = {
           "RESTful APIs",
           "OpenAPI / Swagger",
           "ASP.NET Web Forms",
+          "Next.js / React",
+          "NestJS",
         ],
       },
       {
@@ -291,11 +329,42 @@ const resumeText = {
       },
     ],
     certifications: [
-      "Building AI Agents and Agentic Workflows Specialization",
-      "Introduction to Image Generation",
-      "Vertex AI Studio",
-      "Introduction to Responsible AI",
-      "Google Cloud Computing Foundations: Data, ML, and AI",
+      {
+        title: "Machine Learning Operations (MLOps) for Generative AI",
+        issuer: "Google Cloud Skills Boost",
+        url: "https://www.cloudskillsboost.google/public_profiles/37e3b911-f2e5-496b-9445-eb4d4e1bc3f2/badges/15246552?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share",
+      },
+      {
+        title:
+          "Machine Learning Operations (MLOps) with Vertex AI: Model Evaluation",
+        issuer: "Google Cloud Skills Boost",
+        url: "https://www.cloudskillsboost.google/public_profiles/37e3b911-f2e5-496b-9445-eb4d4e1bc3f2/badges/15276777?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share",
+      },
+      {
+        title: "Foundations of Software Testing and Validation",
+        issuer: "英國里茲大學",
+        url: "https://www.futurelearn.com/certificates/p5z19cq",
+      },
+      {
+        title: "Prompt Design in Vertex AI",
+        issuer: "Google Cloud Skills Boost",
+        url: "https://www.cloudskillsboost.google/public_profiles/37e3b911-f2e5-496b-9445-eb4d4e1bc3f2/badges/17171695?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share",
+      },
+      {
+        title: "Data Manipulation and Transactions in SQL Server",
+        issuer: "微軟",
+        url: "https://www.coursera.org/account/accomplishments/records/PV0LL3K6KOYX",
+      },
+      {
+        title: "Building AI Agents and Agentic Workflows Specialization",
+        issuer: "IBM",
+        url: "https://www.coursera.org/account/accomplishments/specialization/NKAJPVE4MFR2",
+      },
+      {
+        title: "Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI",
+        issuer: "IBM",
+        url: "https://www.coursera.org/account/accomplishments/records/OXWMFAC98ECW",
+      },
     ],
   },
 };
@@ -507,64 +576,75 @@ export default function ResumePage() {
         </div>
       </section>
 
+      <section className="mt-10">
+        <SectionTitle
+          eyebrow={text.skills.eyebrow}
+          title={text.skills.title}
+        />
+        <div className="grid gap-4 md:grid-cols-3">
+          {text.skillGroups.map((group) => (
+            <article
+              key={group.title}
+              className="rounded-xl border border-border bg-card p-5 shadow-sm"
+            >
+              <h3 className="text-sm font-semibold text-foreground">
+                {group.title}
+              </h3>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <Pill key={skill}>{skill}</Pill>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <div className="mt-10 grid gap-6 lg:grid-cols-12">
-        <section className="lg:col-span-8">
+        <section className="lg:col-span-4">
           <SectionTitle
-            eyebrow={text.skills.eyebrow}
-            title={text.skills.title}
+            eyebrow={text.education.eyebrow}
+            title={text.education.title}
           />
-          <div className="grid gap-4 md:grid-cols-3">
-            {text.skillGroups.map((group) => (
-              <article
-                key={group.title}
-                className="rounded-xl border border-border bg-card p-5 shadow-sm"
-              >
-                <h3 className="text-sm font-semibold text-foreground">
-                  {group.title}
-                </h3>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <Pill key={skill}>{skill}</Pill>
-                  ))}
-                </div>
-              </article>
-            ))}
+          <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+            <h3 className="text-sm font-semibold text-foreground">
+              {text.university}
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-muted">{text.degree}</p>
+            <p className="mt-1 text-sm text-muted">{text.educationPeriod}</p>
           </div>
         </section>
 
-        <aside className="space-y-6 lg:col-span-4">
-          <section>
-            <SectionTitle
-              eyebrow={text.education.eyebrow}
-              title={text.education.title}
-            />
-            <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
-              <h3 className="text-sm font-semibold text-foreground">
-                Shih Hsin University
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-muted">
-                {text.degree}
-              </p>
-              <p className="mt-1 text-sm text-muted">
-                {text.educationPeriod}
-              </p>
-            </div>
-          </section>
-
-          <section>
-            <SectionTitle
-              eyebrow={text.learning.eyebrow}
-              title={text.learning.title}
-            />
-            <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
-              <ul className="space-y-3 text-sm leading-6 text-muted">
-                {text.certifications.map((certification) => (
-                  <li key={certification}>{certification}</li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        </aside>
+        <section className="lg:col-span-8">
+          <SectionTitle
+            eyebrow={text.learning.eyebrow}
+            title={text.learning.title}
+          />
+          <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+            <ul className="grid gap-3 text-sm leading-6 text-muted md:grid-cols-2">
+              {text.certifications.map((certification) => (
+                <li key={certification.title}>
+                  <a
+                    href={certification.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group flex h-full min-h-24 items-start justify-between gap-3 rounded-lg border border-border bg-card-muted p-3 transition hover:border-accent hover:bg-accent-soft"
+                  >
+                    <span>
+                      <span className="block font-medium leading-5 text-foreground transition group-hover:text-accent">
+                        {certification.title}
+                      </span>
+                      <span className="mt-1 block text-xs leading-5 text-muted">
+                        {certification.issuer}
+                      </span>
+                    </span>
+                    <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-muted transition group-hover:text-accent" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
       </div>
     </div>
   );
