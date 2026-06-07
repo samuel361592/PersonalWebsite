@@ -8,6 +8,7 @@ import {
   Bot,
   Braces,
   CheckCircle2,
+  ChevronDown,
   GitBranch,
   Layers3,
   Route,
@@ -69,11 +70,18 @@ const caseText = {
         stage: "Stage 1",
         title: "Prompt-Based API Execution",
         pattern: "User Input → Prompt → LLM → API Call → Response",
-        strengths: ["Fast to prototype", "High semantic flexibility"],
+        strengths: [
+          "Fast PoC and MVP development",
+          "Natural-language input flexibility",
+          "Easy integration with existing APIs",
+          "Low cost to add simple capabilities",
+        ],
         limits: [
-          "Prompt complexity grew quickly",
-          "Execution order was hard to control",
-          "Business logic depended too much on LLM behavior",
+          "Limited stability across repeated runs",
+          "Execution order was difficult to control",
+          "Weak state tracking across long processes",
+          "Lower control over API parameters and formats",
+          "Debugging became difficult as prompts and context grew",
         ],
       },
       {
@@ -82,13 +90,19 @@ const caseText = {
         pattern:
           "User Request → Master Agent\n├─ Query Agent\n├─ Validation Agent\n├─ Notification Agent\n└─ Route Agent",
         strengths: [
-          "Clearer responsibility boundaries",
-          "Easier prompt ownership",
+          "High modularity",
+          "Easy to extend",
+          "Easy to reuse",
+          "Prompts are easier to maintain",
+          "Useful for splitting complex domains",
         ],
         limits: [
-          "Coordination became more complex",
-          "LLM cost and latency increased",
-          "Flow control was still too agent-driven",
+          "More complex architecture",
+          "Higher token cost",
+          "More difficult debugging",
+          "Information can be distorted between agents",
+          "Does not naturally solve flow-control problems",
+          "Still needs workflows or state machines for long-running processes",
         ],
       },
       {
@@ -97,14 +111,20 @@ const caseText = {
         pattern:
           "Workflow Orchestrator\n├─ LLM Node\n├─ Function Node\n├─ API Node\n├─ Condition Node\n└─ State Node\n(dynamic path based on workflow state)",
         strengths: [
-          "More deterministic execution",
-          "Better debugging visibility",
-          "Stronger fit for enterprise processes",
+          "High flow stability",
+          "Stronger state management",
+          "More predictable results",
+          "Easier debugging and monitoring",
+          "Supports complex business logic",
+          "Strong fit for standardized enterprise workflows",
+          "More controllable LLM cost",
         ],
         limits: [
-          "Workflow definitions became larger",
-          "Repeated logic started to appear",
-          "Reusable capability boundaries were still unclear",
+          "Higher development and setup cost",
+          "Lower flexibility when flows change",
+          "Large workflows increase maintenance complexity",
+          "Limited value for exploratory or open-ended tasks",
+          "Simple needs can become over-engineered",
         ],
       },
       {
@@ -226,11 +246,17 @@ const caseText = {
         stage: "階段 1",
         title: "Prompt-Based API Execution",
         pattern: "User Input → Prompt → LLM → API Call → Response",
-        strengths: ["原型開發速度快", "語意彈性高"],
+        strengths: [
+          "快速完成 PoC 與 MVP",
+          "自然語言輸入彈性高",
+          "容易串接既有 API",
+          "新增簡單能力的成本低",
+        ],
         limits: [
-          "Prompt 複雜度快速增加",
-          "執行順序難以控制",
-          "商業邏輯過度依賴 LLM 行為",
+          "重複執行的穩定性有限",
+          "API 參數與格式較難穩定控制",
+          "不適合複雜多步驟流程",
+          "Prompt 與 Context 變大後除錯困難",
         ],
       },
       {
@@ -238,11 +264,20 @@ const caseText = {
         title: "Multi-Agent Architecture",
         pattern:
           "User Request → Master Agent\n├─ Query Agent\n├─ Validation Agent\n├─ Notification Agent\n└─ Route Agent",
-        strengths: ["責任邊界更清楚", "Prompt ownership 更容易管理"],
+        strengths: [
+          "模組化高",
+          "易擴充",
+          "易重用",
+          "Prompt 易維護",
+          "適合複雜領域拆分",
+        ],
         limits: [
-          "協調成本變高",
-          "LLM 成本與延遲增加",
-          "流程控制仍然過度由 agent 驅動",
+          "架構較複雜",
+          "Token 成本較高",
+          "除錯較困難",
+          "Agent 間資訊可能失真",
+          "無法天然解決流程控制問題",
+          "仍需搭配 Workflow 或 State Machine 管理長流程",
         ],
       },
       {
@@ -251,14 +286,20 @@ const caseText = {
         pattern:
           "Workflow Orchestrator\n├─ LLM Node\n├─ Function Node\n├─ API Node\n├─ Condition Node\n└─ State Node\n(dynamic path based on workflow state)",
         strengths: [
-          "執行更可預期",
-          "除錯可視性更好",
-          "更符合企業流程需求",
+          "流程穩定性高",
+          "狀態管理完善",
+          "結果較可預測",
+          "容易除錯與監控",
+          "支援複雜業務邏輯",
+          "適合企業標準化流程",
+          "LLM 呼叫成本較可控",
         ],
         limits: [
-          "Workflow definitions 變得更大",
-          "重複邏輯開始出現",
-          "可重用能力邊界仍不夠清楚",
+          "開發與初期建置成本較高",
+          "流程變更彈性較低",
+          "大型流程維護複雜度增加",
+          "不適合探索型或開放式任務",
+          "簡單需求可能過度設計",
         ],
       },
       {
@@ -553,14 +594,50 @@ function SectionHeader({
   );
 }
 
+function splitSignal(item: string) {
+  const separatorIndex = item.search(/[:：]/);
+
+  if (separatorIndex === -1) {
+    return { label: item, detail: "" };
+  }
+
+  return {
+    label: item.slice(0, separatorIndex),
+    detail: item.slice(separatorIndex + 1).trim(),
+  };
+}
+
 function SignalList({ title, items }: { title: string; items: string[] }) {
   return (
     <div>
-      <h3 className="mb-2 text-sm font-semibold text-foreground">{title}</h3>
+      <h3 className="mb-3 text-sm font-semibold text-foreground">{title}</h3>
       <ul className="space-y-2 text-sm leading-6 text-muted">
-        {items.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
+        {items.map((item) => {
+          const signal = splitSignal(item);
+
+          return (
+            <li key={item}>
+              {signal.detail ? (
+                <details className="group rounded-lg border border-border bg-card-muted px-3 py-2">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-medium text-foreground transition hover:text-accent [&::-webkit-details-marker]:hidden">
+                    <span>{signal.label}</span>
+                    <ChevronDown className="h-4 w-4 shrink-0 text-muted transition group-open:rotate-180 group-open:text-accent" />
+                  </summary>
+                  <p className="mt-2 border-t border-border pt-2 text-xs leading-5 text-muted">
+                    {signal.detail}
+                  </p>
+                </details>
+              ) : (
+                <p className="relative pl-4">
+                  <span className="absolute left-0 top-2 h-1.5 w-1.5 rounded-full bg-accent" />
+                  <span className="font-medium text-foreground">
+                    {signal.label}
+                  </span>
+                </p>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
