@@ -26,7 +26,7 @@ const homeText = {
     buildTitle: "What I Build",
   },
   zh: {
-    availability: "開放軟體工程相關機會",
+    availability: "正在尋找軟體工程相關機會",
     headlinePrefix: "專注於",
     aiAgents: "AI agents",
     backendSystems: "後端系統",
