@@ -94,6 +94,14 @@ const projectsText: Record<
     ],
     publicProjects: [
       {
+        title: "Local PDF RAG Assistant",
+        description:
+          "A local-first PDF Q&A assistant built with Streamlit, Ollama, and FAISS. It extracts text from uploaded PDFs, builds an in-session vector index, retrieves relevant chunks, and answers in Traditional Chinese with source filenames and page numbers.",
+        tech: ["Python", "Streamlit", "Ollama", "FAISS", "RAG"],
+        githubUrl:
+          "https://github.com/samuel361592/local-pdf-rag-assistant",
+      },
+      {
         title: "Personal Website",
         description:
           "Personal portfolio website built with Next.js and deployed on Vercel.",
@@ -177,6 +185,14 @@ const projectsText: Record<
       },
     ],
     publicProjects: [
+      {
+        title: "本機 PDF RAG 問答助手",
+        description:
+          "使用 Streamlit、Ollama 與 FAISS 製作的本機 PDF 問答工具，可上傳多份 PDF、建立工作階段內的向量索引、檢索相關 Chunk，並以繁體中文回答且標示來源檔名與頁碼。",
+        tech: ["Python", "Streamlit", "Ollama", "FAISS", "RAG"],
+        githubUrl:
+          "https://github.com/samuel361592/local-pdf-rag-assistant",
+      },
       {
         title: "Personal Website",
         description: "使用 Next.js 建置並部署於 Vercel 的個人作品網站。",
