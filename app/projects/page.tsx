@@ -94,7 +94,7 @@ const projectsText: Record<
     ],
     publicProjects: [
       {
-        title: "Local PDF RAG Assistant",
+        title: "Local RAG Assistant",
         description:
           "A local-first PDF Q&A assistant built with Streamlit, Ollama, and FAISS. It extracts text from uploaded PDFs, builds an in-session vector index, retrieves relevant chunks, and answers in Traditional Chinese with source filenames and page numbers.",
         tech: ["Python", "Streamlit", "Ollama", "FAISS", "RAG"],
@@ -186,7 +186,7 @@ const projectsText: Record<
     ],
     publicProjects: [
       {
-        title: "本機 PDF RAG 問答助手",
+        title: "本機 RAG 問答助手",
         description:
           "使用 Streamlit、Ollama 與 FAISS 製作的本機 PDF 問答工具，可上傳多份 PDF、建立工作階段內的向量索引、檢索相關 Chunk，並以繁體中文回答且標示來源檔名與頁碼。",
         tech: ["Python", "Streamlit", "Ollama", "FAISS", "RAG"],
@@ -194,14 +194,14 @@ const projectsText: Record<
           "https://github.com/samuel361592/local-pdf-rag-assistant",
       },
       {
-        title: "Personal Website",
+        title: "個人作品集網站",
         description: "使用 Next.js 建置並部署於 Vercel 的個人作品網站。",
         tech: ["Next.js", "Tailwind CSS", "Vercel"],
         githubUrl: "https://github.com/samuel361592/PersonalWebsite.git",
         demoUrl: "https://samuel-chen.com",
       },
       {
-        title: "Social Platform (Auth & RBAC)",
+        title: "社群平台（身分驗證與角色權限控管）",
         description:
           "練習 authentication、authorization 與 CRUD 的全端社群平台，支援註冊、JWT 登入、角色權限控管與貼文擁有權驗證。",
         tech: ["Next.js", "NestJS", "TypeORM", "JWT", "RBAC", "MySQL"],
@@ -218,21 +218,21 @@ const projectsText: Record<
         demoUrl: "https://nextjsfrontend-green.vercel.app/",
       },
       {
-        title: "Todo CLI",
+        title: "待辦事項命令列工具",
         description:
           "使用 Go 建置的命令列 todo 工具，搭配 SQLite 持久化儲存與可長期維護的專案結構。",
         tech: ["Go", "SQLite"],
         githubUrl: "https://github.com/samuel361592/golang-todo-cli.git",
       },
       {
-        title: "Google Image Crawler",
+        title: "Google 圖片爬蟲",
         description:
           "以 Python 和 Google Custom Search API 自動化關鍵字圖片蒐集，用於 LLM 與 vision dataset 準備。",
         tech: ["Python", "Google Custom Search API", "REST API"],
         githubUrl: "https://github.com/samuel361592/google-image-crawler.git",
       },
       {
-        title: "Taiwan Weather Web",
+        title: "台灣天氣查詢網站",
         description:
           "以 Python Flask 串接 CWA Open Data 的天氣查詢工具，提供台灣 22 個縣市的 36 小時預報。",
         tech: ["Python", "Flask", "CWA Open Data API", "REST API"],
