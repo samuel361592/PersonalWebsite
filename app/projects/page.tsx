@@ -96,7 +96,7 @@ const projectsText: Record<
       {
         title: "Local RAG Assistant",
         description:
-          "A local-first PDF Q&A assistant built with Streamlit, Ollama, and FAISS. It extracts text from uploaded PDFs, builds an in-session vector index, retrieves relevant chunks, and answers in Traditional Chinese with source filenames and page numbers.",
+          "A local RAG document Q&A tool supporting PDFs, images, and Excel files. It integrates OCR, optional VLM, FAISS vector retrieval, and a reranker, using Ollama to produce Traditional Chinese answers with sources. Optional BM25 hybrid retrieval, chunk previews, and Hit Rate/MRR evaluation are also included.",
         tech: ["Python", "Streamlit", "Ollama", "FAISS", "RAG"],
         githubUrl:
           "https://github.com/samuel361592/local-pdf-rag-assistant",
@@ -188,7 +188,7 @@ const projectsText: Record<
       {
         title: "本機 RAG 問答助手",
         description:
-          "使用 Streamlit、Ollama 與 FAISS 製作的本機 PDF 問答工具，可上傳多份 PDF、建立工作階段內的向量索引、檢索相關 Chunk，並以繁體中文回答且標示來源檔名與頁碼。",
+          "支援 PDF、圖片與 Excel 的本機 RAG 文件問答工具，整合 OCR、可選 VLM、FAISS 向量檢索與 Reranker，透過 Ollama 產生附來源的繁體中文回答；另提供可選 BM25 混合檢索、Chunk 預覽及 Hit Rate／MRR 評測。",
         tech: ["Python", "Streamlit", "Ollama", "FAISS", "RAG"],
         githubUrl:
           "https://github.com/samuel361592/local-pdf-rag-assistant",
