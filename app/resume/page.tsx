@@ -543,7 +543,10 @@ export default function ResumePage() {
                       </ul>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {role.skills.map((skill) => (
-                          <Pill key={skill} active={role.featured}>
+                          <Pill
+                            key={skill}
+                            active={"featured" in role && role.featured}
+                          >
                             {skill}
                           </Pill>
                         ))}
