@@ -309,7 +309,7 @@ const caseText = {
         ],
       },
       {
-        stage: "階段 4（進行中）",
+        stage: "階段 4",
         title: "Skill-Based Architecture Direction",
         pattern:
           "Agent\n  ↓\n大 Skill（程序控制）\n  ├─ 小 Skill A → API ─────────┐\n  ├─ 小 Skill B → LLM / JS ────┤\n  ├─ 小 Skill C → Workflow ────┤→ 回傳大 Skill\n  └─ 小 Skill D → Workflow ────┘\n                  ↓\n        下一步判斷／結果整合\n                  ↓\n        CRM Operation Result",
