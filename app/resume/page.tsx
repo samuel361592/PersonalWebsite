@@ -56,14 +56,15 @@ const resumeText = {
     roles: [
       {
         title: "AI Engineer",
-        period: "Jan 2026 - Present",
+        period: "Sep 2025 - Present",
         summary:
-          "Building enterprise AI agent workflows for CRM repair operations, dispatching, scheduling, and route planning.",
+          "Designed and built AI agents and reusable AI workflow components within an enterprise low-code Agentic AI platform, automating CRM repair, dispatching, scheduling, notification, and route-planning workflows.",
         highlights: [
-          "Built reusable AI agent skills that connect LLM workflow nodes with enterprise CRM APIs and JavaScript function logic.",
-          "Evolved prompt-based API execution into structured workflow pipelines with conditional routing and state-driven orchestration.",
-          "Integrated Google Maps APIs to support travel-time estimation, field-service scheduling, and route-planning automation.",
-          "Designed OpenAPI-documented services so backend capabilities can be invoked reliably by AI workflows and internal tools.",
+          "Built LLM-powered automation workflows by combining low-code orchestration with prompt engineering, JavaScript execution, C#/.NET APIs, RESTful CRM APIs, validation logic, conditional branching, and workflow state control for enterprise field-service automation.",
+          "Evolved CRM automation from prompt-based API execution into agent-based execution, multi-agent collaboration, and reusable skill-based architecture, improving workflow modularity, maintainability, and execution control.",
+          "Designed and authored 2 major AI skills and 6 sub-skills, including structured prompts, Skill.md instructions, execution rules, decision logic, workflow handoff rules, and error-handling flows.",
+          "Developed C#/.NET backend APIs with OpenAPI/Swagger documentation and integrated Google Maps APIs to support CRM service automation, travel-time estimation, scheduling, and route validation.",
+          "Built engineering foundation through CRM customization, including system design, UI/backend implementation, SQL Server data flow, testing, debugging, and UAT quality control.",
         ],
         skills: [
           "AI Agents",
@@ -74,18 +75,6 @@ const resumeText = {
           "Google Maps APIs",
         ],
         featured: true,
-      },
-      {
-        title: "Software Engineer",
-        period: "Sep 2025 - Dec 2025",
-        summary:
-          "Developed CRM customization features and backend modules for enterprise business workflows.",
-        highlights: [
-          "Implemented CRM modules, UI behavior, and backend logic using C#, .NET Framework, ASP.NET Web Forms, and SQL Server.",
-          "Translated business requirements into maintainable features with testing and debugging before UAT.",
-          "Improved implementation documentation and mentored a new team member, reducing ramp-up time by about 40%.",
-        ],
-        skills: ["C#", ".NET Framework", "ASP.NET Web Forms", "SQL Server"],
       },
     ],
   },
@@ -121,6 +110,7 @@ const resumeText = {
     skills: [
       "AI Agents",
       "Agentic AI Development",
+      "Prompt Engineering",
       "Multi-Agent Orchestration",
       "LLM Workflows",
       "Tool-Invocable Services",
@@ -145,7 +135,7 @@ const resumeText = {
     skills: [
       "System Integration",
       "Google Maps APIs",
-      "Git",
+      "Git/SVN",
       "Jira / Agile",
       "Testing & Debugging",
       "Documentation",
@@ -232,15 +222,16 @@ const resumeText = {
         location: "New Taipei City, Taiwan",
         roles: [
           {
-            title: "AI Application Engineer",
-            period: "2026 年 1 月 - 現在",
+            title: "AI Engineer",
+            period: "2025 年 9 月 - 現在",
             summary:
-              "為 CRM 維修作業、派工、排程與路線規劃建立企業 AI agent workflows。",
+              "在企業低程式碼 Agentic AI 平台中，設計並開發 AI Agent 與可重複使用的 AI 工作流程元件，自動化 CRM 維修、派工、排程、通知及路線規劃流程。",
             highlights: [
-              "建立可重用 AI agent skills，串接 LLM workflow nodes、企業 CRM APIs 與 JavaScript function logic。",
-              "將 prompt-based API execution 演進成具備 conditional routing 與 state-driven orchestration 的結構化 workflow pipelines。",
-              "整合 Google Maps APIs 支援交通時間估算、外勤排程與路線規劃自動化。",
-              "設計 OpenAPI 文件化服務，讓後端能力能被 AI workflows 與內部工具可靠呼叫。",
+              "結合低程式碼流程編排、提示詞工程、JavaScript 執行、C#／.NET API、RESTful CRM API、資料驗證、條件分支與流程狀態控制，建置以 LLM 驅動的企業現場服務自動化流程。",
+              "將 CRM 自動化從提示詞驅動的 API 執行，逐步演進為 Agent 執行、多 Agent 協作及可重複使用的 Skill 架構，提升流程模組化、可維護性與執行控制能力。",
+              "設計並撰寫 2 個主要 AI Skill 與 6 個子 Skill，涵蓋結構化提示詞、SKILL.md 指令、執行規則、決策邏輯、流程交接規則及錯誤處理機制。",
+              "開發 C#／.NET 後端 API，撰寫 OpenAPI／Swagger 文件，並整合 Google Maps API，支援 CRM 服務自動化、行程時間估算、排程及路線驗證。",
+              "透過 CRM 客製化專案建立完整工程實務基礎，涵蓋系統設計、前後端開發、SQL Server 資料流程、測試、除錯及 UAT 品質把關。",
             ],
             skills: [
               "AI Agents",
@@ -251,17 +242,6 @@ const resumeText = {
               "Google Maps APIs",
             ],
             featured: true,
-          },
-          {
-            title: "Software Engineer",
-            period: "2025 年 9 月 - 2025 年 12 月",
-            summary: "開發企業商務流程所需的 CRM 客製功能與後端模組。",
-            highlights: [
-              "使用 C#, .NET Framework, ASP.NET Web Forms 與 SQL Server 實作 CRM 模組、UI 行為與後端邏輯。",
-              "將商業需求轉成可維護功能，並在 UAT 前完成測試與除錯。",
-              "改善實作文件並協助新人上手，使 ramp-up time 約降低 40%。",
-            ],
-            skills: ["C#", ".NET Framework", "ASP.NET Web Forms", "SQL Server"],
           },
         ],
       },
@@ -297,6 +277,7 @@ const resumeText = {
         skills: [
           "AI Agents",
           "Agentic AI Development",
+          "Prompt Engineering",
           "Multi-Agent Orchestration",
           "LLM Workflows",
           "Tool-Invocable Services",
@@ -321,7 +302,7 @@ const resumeText = {
         skills: [
           "System Integration",
           "Google Maps APIs",
-          "Git",
+          "Git/SVN",
           "Jira / Agile",
           "Testing & Debugging",
           "Documentation",
