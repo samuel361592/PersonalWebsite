@@ -4,6 +4,17 @@ import Navbar from "./components/Navbar";
 import { LanguageProvider } from "./lib/language";
 import { ThemeProvider } from "./lib/theme";
 import { Analytics } from "@vercel/analytics/next";
+import type { Metadata } from "next";
+import { siteName, siteUrl } from "./lib/metadata";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  applicationName: siteName,
+  title: "Samuel Chen | AI Engineer",
+  description:
+    "Samuel Chen's portfolio: LLM applications, RAG, AI agents, and backend systems integration.",
+  authors: [{ name: siteName, url: siteUrl }],
+};
 
 export default function RootLayout({
   children,
