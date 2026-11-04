@@ -12,32 +12,38 @@ import { useLanguage } from "./lib/language";
 const homeText = {
   en: {
     availability: "Open to software engineering opportunities",
-    headlinePrefix: "Software Engineer focused on",
+    headlinePrefix: "AI Engineer focused on",
+    llmApplications: "LLM applications",
+    rag: "RAG",
     aiAgents: "AI agents",
-    backendSystems: "backend systems",
+    backendIntegration: "backend systems integration",
     and: "and",
-    enterpriseAutomation: "enterprise workflow automation",
+    separator: ", ",
+    ending: ".",
     intro:
-      "I design systems where AI reasoning connects to stable APIs, workflow state, validation logic, and real enterprise operations. My work emphasizes clear boundaries, predictable behavior, and maintainable execution paths.",
+      "I build AI applications that connect language models, knowledge retrieval, tools, and backend services. My work emphasizes grounded answers, reliable execution, evaluation, and maintainable systems.",
     viewProjects: "View Projects",
     resume: "Resume",
     note:
-      "Experience building backend-integrated AI workflows, enterprise CRM automation, and internal tools with long-term ownership and production stability in mind.",
+      "My work spans local RAG document Q&A, AI agent workflows, backend integration, and enterprise automation, with a focus on practical applications and long-term maintainability.",
     buildTitle: "What I Build",
   },
   zh: {
     availability: "正在尋找軟體工程相關機會",
-    headlinePrefix: "專注於",
-    aiAgents: "AI agents",
-    backendSystems: "後端系統",
+    headlinePrefix: "AI Engineer，專注",
+    llmApplications: "LLM 應用",
+    rag: "RAG",
+    aiAgents: "AI Agents",
+    backendIntegration: "後端系統整合",
     and: "以及",
-    enterpriseAutomation: "企業流程自動化",
+    separator: "、",
+    ending: "。",
     intro:
-      "我設計能串接 AI 推理、穩定 API、流程狀態、驗證邏輯與企業實際作業的系統，重視清楚邊界、可預期行為與長期維護性。",
+      "我打造結合語言模型、知識檢索、工具與後端服務的 AI 應用，重視回答依據、可靠執行、評測與系統維護性。",
     viewProjects: "查看專案",
     resume: "履歷",
     note:
-      "具備後端整合、AI 工作流程、企業 CRM 自動化與內部工具開發經驗，重視長期維護與正式環境穩定性。",
+      "實作涵蓋本機 RAG 文件問答、AI Agent 工作流程、後端整合與企業自動化，重視實際應用與長期維護性。",
     buildTitle: "我打造的系統",
   },
 };
@@ -64,13 +70,16 @@ export default function Home() {
 
             <p className="mb-5 max-w-3xl text-xl font-medium leading-snug text-foreground motion-safe:animate-[fadeInUp_0.75s_ease-out_both] md:text-2xl">
               {text.headlinePrefix}{" "}
-              <span className="text-accent">{text.aiAgents}</span>,{" "}
-              <span className="text-cyan-600">{text.backendSystems}</span>,{" "}
+              <span className="text-accent">{text.llmApplications}</span>
+              {text.separator}
+              <span className="text-accent">{text.rag}</span>
+              {text.separator}
+              <span className="text-cyan-600">{text.aiAgents}</span>{" "}
               {text.and}{" "}
               <span className="text-success">
-                {text.enterpriseAutomation}
+                {text.backendIntegration}
               </span>
-              .
+              {text.ending}
             </p>
 
             <p className="mb-10 max-w-3xl text-base leading-relaxed text-muted motion-safe:animate-[fadeInUp_0.85s_ease-out_both]">

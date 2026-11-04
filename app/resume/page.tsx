@@ -16,13 +16,13 @@ const resumeText = {
   en: {
     availability: "Open to software engineering opportunities",
     title:
-      "AI Engineer focused on enterprise AI agents and backend-integrated workflow automation.",
+      "AI Engineer focused on LLM applications, RAG, AI agents, and backend systems integration.",
     intro:
-      "I build CRM automation systems that connect LLM workflows, backend services, enterprise APIs, and operational data into maintainable execution pipelines.",
+      "I build AI applications that connect language models, knowledge retrieval, tools, and backend services. My work spans local RAG document Q&A and enterprise AI agent workflows, with a focus on reliable execution and maintainability.",
     profileStats: [
-      { label: "Current focus", value: "Enterprise AI agents" },
+      { label: "Current focus", value: "LLM applications, RAG, AI agents" },
       { label: "Core stack", value: "Python, C#, REST APIs" },
-      { label: "Domain", value: "CRM workflow automation" },
+      { label: "Specialty", value: "AI applications & systems integration" },
     ],
     overview: { eyebrow: "Overview", title: "What I Do Best" },
     experience: { eyebrow: "Experience", title: "Recent Work" },
@@ -183,13 +183,13 @@ const resumeText = {
   },
   zh: {
     availability: "開放軟體工程相關機會",
-    title: "AI Application Engineer，專注企業 AI agents、後端整合與工作流程自動化。",
+    title: "AI Engineer，專注 LLM 應用、RAG、AI Agents 與後端系統整合。",
     intro:
-      "我建立 CRM 自動化系統，將 LLM 工作流程、後端服務、企業 API 與營運資料整合成穩定、可維護的自動化流程。",
+      "我打造結合語言模型、知識檢索、工具與後端服務的 AI 應用，實作涵蓋本機 RAG 文件問答與企業 AI Agent 工作流程，重視可靠執行與長期維護性。",
     profileStats: [
-      { label: "目前重點", value: "企業 AI agents" },
+      { label: "目前重點", value: "LLM 應用、RAG、AI Agents" },
       { label: "核心技術", value: "Python, C#, REST APIs" },
-      { label: "領域", value: "CRM 工作流程自動化" },
+      { label: "專長", value: "AI 應用與系統整合" },
     ],
     overview: { eyebrow: "概覽", title: "我的核心能力" },
     experience: { eyebrow: "經歷", title: "近期工作" },
