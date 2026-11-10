@@ -5,7 +5,7 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 
@@ -21,26 +21,41 @@ const LanguageContext = createContext<LanguageContextValue | undefined>(
   undefined,
 );
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>(() => {
-    if (typeof window === "undefined") {
-      return "en";
-    }
+const languageChangeEvent = "site-language-change";
 
+function getSavedLanguage(): Language {
+  try {
     const savedLanguage = window.localStorage.getItem("site-language");
-
-    if (savedLanguage === "en" || savedLanguage === "zh") {
-      return savedLanguage;
-    }
-
+    return savedLanguage === "zh" ? "zh" : "en";
+  } catch {
     return "en";
-  });
+  }
+}
+
+function subscribeToLanguage(onChange: () => void) {
+  window.addEventListener("storage", onChange);
+  window.addEventListener(languageChangeEvent, onChange);
+  return () => {
+    window.removeEventListener("storage", onChange);
+    window.removeEventListener(languageChangeEvent, onChange);
+  };
+}
+
+function getServerLanguage(): Language {
+  return "en";
+}
+
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  const language = useSyncExternalStore(
+    subscribeToLanguage,
+    getSavedLanguage,
+    getServerLanguage,
+  );
 
   const value = useMemo<LanguageContextValue>(() => {
     const setLanguage = (nextLanguage: Language) => {
-      setLanguageState(nextLanguage);
       window.localStorage.setItem("site-language", nextLanguage);
-      document.documentElement.lang = nextLanguage === "zh" ? "zh-Hant" : "en";
+      window.dispatchEvent(new Event(languageChangeEvent));
     };
 
     return {
