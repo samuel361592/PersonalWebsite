@@ -14,14 +14,14 @@ import { useLanguage } from "../lib/language";
 
 const resumeText = {
   en: {
-    availability: "Open to software engineering opportunities",
+    availability: "Open to AI application, backend, and software engineering roles",
     title:
       "AI Engineer focused on LLM applications, RAG, AI agents, and backend systems integration.",
     intro:
-      "I build AI applications that connect language models, knowledge retrieval, tools, and backend services. My work spans local RAG document Q&A and enterprise AI agent workflows, with a focus on reliable execution and maintainability.",
+      "I build AI applications that connect language models, knowledge retrieval, tools, and backend services. My experience includes enterprise CRM AI skills and workflows, C#/.NET backend development, and software quality assurance. My personal projects span local RAG document Q&A with Python and full-stack applications with Next.js and NestJS.",
     profileStats: [
       { label: "Current focus", value: "LLM applications, RAG, AI agents" },
-      { label: "Core stack", value: "Python, C#, REST APIs" },
+      { label: "Core stack", value: "Python, C# / .NET, JavaScript, REST APIs" },
       { label: "Specialty", value: "AI applications & systems integration" },
     ],
     overview: { eyebrow: "Overview", title: "What I Do Best" },
@@ -32,11 +32,15 @@ const resumeText = {
     university: "Shih Hsin University",
     degree: "B.S. in Information Management",
     educationPeriod: "Sep 2021 - Jun 2025",
+    qualifications: [
+      "PMA Project Assistant — National Project Management Association (NPMA)",
+      "iPAS Information Security Engineer — Entry Level",
+    ],
     focusAreas: [
   {
     title: "AI Agent Systems",
     description:
-      "Designing agentic workflows, reusable AI skills, and multi-step automation for enterprise CRM operations.",
+      "Designing reusable AI skills and workflows with tool calling, conditional branching, state management, and error handling for enterprise CRM operations.",
   },
   {
     title: "Backend Integration",
@@ -44,43 +48,42 @@ const resumeText = {
       "Connecting LLM-driven workflows with REST APIs, business logic, SQL-backed services, and operational validation.",
   },
   {
-    title: "Workflow Automation",
+    title: "RAG & Document Processing",
     description:
-      "Turning dispatch, scheduling, notification, and route-planning processes into clearer execution pipelines.",
+      "Building local document Q&A with OCR, vector and hybrid retrieval, reranking, source citations, and reproducible retrieval evaluation.",
   },
 ],
     experiences: [
   {
-    company: "Datasys",
-    location: "New Taipei City, Taiwan",
+    company: "Digiwin (Datasys)",
+    location: "Xindian, New Taipei City, Taiwan",
     roles: [
       {
         title: "AI Engineer",
-        period: "Sep 2025 - Present",
+        period: "Sep 2025 - Nov 2026",
         summary:
-          "Designed and built AI agents and reusable AI workflow components within an enterprise low-code Agentic AI platform, automating CRM repair, dispatching, scheduling, notification, and route-planning workflows.",
+          "Contributed to the development and release of CRM AI skills and workflows from the ground up on Digiwin’s enterprise AI agent platform, covering repair and maintenance, scheduling and notifications, sales opportunities, customer interactions, visit planning, and quotations.",
         highlights: [
-          "Built LLM-powered automation workflows by combining low-code orchestration with prompt engineering, JavaScript execution, C#/.NET APIs, RESTful CRM APIs, validation logic, conditional branching, and workflow state control for enterprise field-service automation.",
-          "Evolved CRM automation from prompt-based API execution into agent-based execution, multi-agent collaboration, and reusable skill-based architecture, improving workflow modularity, maintainability, and execution control.",
-          "Designed and authored 2 major AI skills and 6 sub-skills, including structured prompts, Skill.md instructions, execution rules, decision logic, workflow handoff rules, and error-handling flows.",
-          "Developed C#/.NET backend APIs with OpenAPI/Swagger documentation and integrated Google Maps APIs to support CRM service automation, travel-time estimation, scheduling, and route validation.",
-          "Built engineering foundation through CRM customization, including system design, UI/backend implementation, SQL Server data flow, testing, debugging, and UAT quality control.",
+          "Designed and developed 8 main AI skills, 22 sub-skills, and 7 automated workflows, implementing tool calling, API integration, conditional branching, workflow handoffs, and error handling for multi-step CRM operations.",
+          "Built modular, reusable AI skills and workflows using prompt engineering and JavaScript for data transformation, validation, and workflow state management. Used the platform’s existing RAG capabilities for enterprise knowledge retrieval and OCR capabilities for document recognition and data extraction.",
+          "Developed C#/.NET backend APIs with OpenAPI/Swagger documentation to connect CRM functions with AI skills and workflows. Integrated the Google Maps Routes API for driving distance and travel time calculations, and independently implemented location-based customer filtering for radius-based searches and visit planning.",
+          "Collaborated with geographically distributed teams on requirements analysis, workflow design, system testing, UAT, and feature demonstrations. Independently developed and tested custom CRM frontend and backend features and handled SQL Server data operations.",
         ],
         skills: [
           "AI Agents",
-          "Multi-Agent Orchestration",
+          "Tool Calling",
+          "JavaScript",
           "Workflow Automation",
           "RESTful APIs",
           "OpenAPI / Swagger",
-          "Google Maps APIs",
+          "Google Maps Routes API",
         ],
-        featured: true,
       },
     ],
   },
   {
     company: "GoMore",
-    location: "Taipei, Taiwan",
+    location: "Xindian, New Taipei City, Taiwan",
     roles: [
       {
         title: "Quality Assurance Intern",
@@ -88,9 +91,10 @@ const resumeText = {
         summary:
           "Tested mobile apps, web dashboards, APIs, wearable devices, and machine-learning model outputs across real usage scenarios.",
         highlights: [
-          "Designed functional and exploratory test cases for mobile apps and web management dashboards, then verified fixes across releases.",
-          "Performed API integration testing with Postman to catch backend-frontend consistency issues earlier.",
-          "Collected real-world sensor and firmware data for wearable devices, supporting engineering validation and stability improvements.",
+          "Designed test cases, reported defects, and verified fixes for the 活力細胞 mobile app and web dashboard. Performed functional and exploratory testing of MegoLuki user flows, UI/UX behavior, and feature stability.",
+          "Used Postman to test APIs and LLM-powered applications, validating response accuracy, logic, formatting, and prompt-driven behavior across user scenarios.",
+          "Tested Cleer wireless headphones during exercise and public transportation, and collected Oura Ring sensor and firmware data to support device accuracy and firmware validation.",
+          "Managed defect tracking and cross-team issue resolution in Jira within Agile sprints, supporting fix verification and feature delivery.",
           "Created Python automation scripts to validate machine-learning model accuracy and reduce manual verification effort.",
         ],
         skills: [
@@ -113,8 +117,13 @@ const resumeText = {
       "Prompt Engineering",
       "Multi-Agent Orchestration",
       "LLM Workflows",
-      "Tool-Invocable Services",
+      "Tool Calling",
       "Workflow Automation",
+      "RAG / LangChain",
+      "Ollama / FAISS",
+      "BM25 / RRF / Reranking",
+      "OCR / PaddleOCR",
+      "Retrieval Evaluation (Hit Rate@K, MRR)",
     ],
   },
   {
@@ -128,16 +137,24 @@ const resumeText = {
       "ASP.NET Web Forms",
       "Next.js / React",
       "NestJS",
+      "TypeORM",
+      "MySQL / PostgreSQL",
+      "JWT / Role-Based Access Control",
     ],
   },
   {
     title: "Engineering",
     skills: [
       "System Integration",
-      "Google Maps APIs",
+      "Google Maps Routes API",
+      "JavaScript / HTML / CSS",
+      "Tailwind CSS",
       "Git/SVN",
       "Jira / Agile",
       "Testing & Debugging",
+      "Postman / Pytest / Jest",
+      "Pandas",
+      "Docker Compose",
       "Documentation",
     ],
   },
@@ -182,13 +199,13 @@ const resumeText = {
     ],
   },
   zh: {
-    availability: "開放軟體工程相關機會",
+    availability: "尋找 AI 應用、後端與軟體工程相關機會",
     title: "AI Engineer，專注 LLM 應用、RAG、AI Agents 與後端系統整合。",
     intro:
-      "我打造結合語言模型、知識檢索、工具與後端服務的 AI 應用，實作涵蓋本機 RAG 文件問答與企業 AI Agent 工作流程，重視可靠執行與長期維護性。",
+      "我打造結合語言模型、知識檢索、工具與後端服務的 AI 應用，具備企業 CRM AI Skills 與 Workflows、C#／.NET 後端開發及軟體品質測試經驗。個人專案涵蓋 Python 本機 RAG 文件問答，以及 Next.js／NestJS 全端應用，職涯聚焦 AI 應用與後端系統開發。",
     profileStats: [
       { label: "目前重點", value: "LLM 應用、RAG、AI Agents" },
-      { label: "核心技術", value: "Python, C#, REST APIs" },
+      { label: "核心技術", value: "Python、C#／.NET、JavaScript、REST APIs" },
       { label: "專長", value: "AI 應用與系統整合" },
     ],
     overview: { eyebrow: "概覽", title: "我的核心能力" },
@@ -199,11 +216,15 @@ const resumeText = {
     university: "世新大學",
     degree: "資訊管理學系 學士",
     educationPeriod: "2021 年 9 月 - 2025 年 6 月",
+    qualifications: [
+      "PMA 專案助理 — 中華專案管理學會（NPMA）",
+      "iPAS 資訊安全工程師（初級）",
+    ],
     focusAreas: [
       {
         title: "AI Agent 系統",
         description:
-          "設計 agentic workflows、可重用 AI skills，以及企業 CRM 作業的多步驟自動化。",
+          "設計可重複使用的 AI 技能與工作流程，涵蓋工具呼叫、條件分流、狀態管理及錯誤處理，支援企業 CRM 多步驟作業。",
       },
       {
         title: "後端整合",
@@ -211,54 +232,54 @@ const resumeText = {
           "把 LLM-driven workflows 串接 REST APIs、商業邏輯、SQL-backed services 與營運驗證。",
       },
       {
-        title: "工作流程自動化",
+        title: "RAG 與文件處理",
         description:
-          "將派工、排程、通知與路線規劃流程整理成更清楚的執行管線。",
+          "實作本機文件問答，整合 OCR、向量與混合檢索、重排、來源引用及可重現的檢索評測。",
       },
     ],
     experiences: [
       {
-        company: "Datasys",
-        location: "New Taipei City, Taiwan",
+        company: "鼎新數智股份有限公司（Datasys）",
+        location: "台灣新北市新店區",
         roles: [
           {
             title: "AI Engineer",
-            period: "2025 年 9 月 - 現在",
+            period: "2025 年 9 月 - 2026 年 11 月",
             summary:
-              "在企業低程式碼 Agentic AI 平台中，設計並開發 AI Agent 與可重複使用的 AI 工作流程元件，自動化 CRM 維修、派工、排程、通知及路線規劃流程。",
+              "參與鼎新企業級 AI Agent 平台的 CRM AI 技能與工作流程從零開發及上線，涵蓋維修與保養服務、行程安排與通知、銷售機會管理、客戶互動、拜訪規劃及報價單處理。",
             highlights: [
-              "結合低程式碼流程編排、提示詞工程、JavaScript 執行、C#／.NET API、RESTful CRM API、資料驗證、條件分支與流程狀態控制，建置以 LLM 驅動的企業現場服務自動化流程。",
-              "將 CRM 自動化從提示詞驅動的 API 執行，逐步演進為 Agent 執行、多 Agent 協作及可重複使用的 Skill 架構，提升流程模組化、可維護性與執行控制能力。",
-              "設計並撰寫 2 個主要 AI Skill 與 6 個子 Skill，涵蓋結構化提示詞、SKILL.md 指令、執行規則、決策邏輯、流程交接規則及錯誤處理機制。",
-              "開發 C#／.NET 後端 API，撰寫 OpenAPI／Swagger 文件，並整合 Google Maps API，支援 CRM 服務自動化、行程時間估算、排程及路線驗證。",
-              "透過 CRM 客製化專案建立完整工程實務基礎，涵蓋系統設計、前後端開發、SQL Server 資料流程、測試、除錯及 UAT 品質把關。",
+              "設計並開發 8 個主要 AI 技能、22 個子技能及 7 個工作流，實作工具呼叫、API 整合、條件分流、跨流程交接及錯誤處理機制，支援多步驟 CRM 業務作業。",
+              "建置模組化、可重複使用的 AI Skills 與 Workflows，透過提示詞工程及 JavaScript 實作資料轉換、驗證與流程狀態管理；運用平台既有的 RAG 能力進行企業知識庫檢索，以及 OCR 能力進行文件辨識與資料擷取。",
+              "開發 C#／.NET 後端 API 並撰寫 OpenAPI／Swagger 文件，整合 CRM 功能與 AI Skills、Workflows；串接 Google Maps Routes API 計算行車距離與預估時間，並獨立實作地理位置客戶篩選，支援指定半徑內的客戶搜尋與拜訪規劃。",
+              "與跨地區團隊協作，參與需求分析、工作流程設計、系統測試、使用者驗收測試（UAT）及功能展示；另獨立開發與測試 CRM 客製化前後端功能，並負責 SQL Server 資料處理。",
             ],
             skills: [
               "AI Agents",
-              "Multi-Agent Orchestration",
+              "Tool Calling",
+              "JavaScript",
               "Workflow Automation",
               "RESTful APIs",
               "OpenAPI / Swagger",
-              "Google Maps APIs",
+              "Google Maps Routes API",
             ],
-            featured: true,
           },
         ],
       },
       {
-        company: "GoMore",
-        location: "Taipei, Taiwan",
+        company: "博晶醫電股份有限公司（GoMore）",
+        location: "台灣新北市新店區",
         roles: [
           {
             title: "Quality Assurance Intern",
             period: "2025 年 2 月 - 2025 年 8 月",
             summary:
-              "針對 mobile apps、web dashboards、APIs、wearable devices 與 machine-learning model outputs 進行真實使用情境測試。",
+              "負責手機 App、Web 後台、API、穿戴式裝置及機器學習模型的測試與驗證，支援版本品質及跨團隊問題追蹤。",
             highlights: [
-              "設計 mobile apps 與 web management dashboards 的功能與探索式測試案例，並跨版本驗證修正結果。",
-              "使用 Postman 進行 API integration testing，提早發現前後端一致性問題。",
-              "蒐集 wearable devices 的真實 sensor 與 firmware data，支援工程驗證與穩定性改善。",
-              "建立 Python automation scripts 驗證 machine-learning model accuracy，降低人工驗證成本。",
+              "針對「活力細胞」App 與 Web 後台設計測試案例、回報缺陷並驗證修復結果；對 MegoLuki 進行功能與探索式測試，驗證使用流程、介面行為及功能穩定性。",
+              "使用 Postman 進行 API 整合與 LLM 應用測試，驗證回應正確性、邏輯、格式一致性及不同情境下的提示詞驅動行為。",
+              "於運動與大眾交通情境測試 Cleer 無線耳機，並蒐集 Oura Ring 感測器與韌體數據，協助驗證感測精準度及韌體更新可靠性。",
+              "在 Agile Sprint 中使用 Jira 管理缺陷生命週期，協調跨團隊問題追蹤、修復進度及版本驗證。",
+              "開發 Python 自動化測試腳本並依評估標準驗證機器學習模型預測結果，提高測試覆蓋率並降低人工驗證成本。",
             ],
             skills: [
               "Test Design",
@@ -280,8 +301,13 @@ const resumeText = {
           "Prompt Engineering",
           "Multi-Agent Orchestration",
           "LLM Workflows",
-          "Tool-Invocable Services",
+          "Tool Calling",
           "Workflow Automation",
+          "RAG / LangChain",
+          "Ollama / FAISS",
+          "BM25 / RRF / Reranking",
+          "OCR / PaddleOCR",
+          "Retrieval Evaluation (Hit Rate@K, MRR)",
         ],
       },
       {
@@ -295,16 +321,24 @@ const resumeText = {
           "ASP.NET Web Forms",
           "Next.js / React",
           "NestJS",
+          "TypeORM",
+          "MySQL / PostgreSQL",
+          "JWT / Role-Based Access Control",
         ],
       },
       {
         title: "Engineering",
         skills: [
           "System Integration",
-          "Google Maps APIs",
+          "Google Maps Routes API",
+          "JavaScript / HTML / CSS",
+          "Tailwind CSS",
           "Git/SVN",
           "Jira / Agile",
           "Testing & Debugging",
+          "Postman / Pytest / Jest",
+          "Pandas",
+          "Docker Compose",
           "Documentation",
         ],
       },
@@ -350,21 +384,10 @@ const resumeText = {
   },
 };
 
-function Pill({
-  children,
-  active = false,
-}: {
-  children: string;
-  active?: boolean;
-}) {
+function Pill({ children }: { children: string }) {
   return (
     <span
-      className={[
-        "rounded-md px-2.5 py-1 text-xs transition-colors",
-        active
-          ? "bg-accent-soft text-accent-foreground ring-1 ring-border"
-          : "bg-card-muted text-muted ring-1 ring-border",
-      ].join(" ")}
+      className="rounded-md bg-card-muted px-2.5 py-1 text-xs text-muted ring-1 ring-border transition-colors"
     >
       {children}
     </span>
@@ -543,10 +566,7 @@ export default function ResumePage() {
                       </ul>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {role.skills.map((skill) => (
-                          <Pill
-                            key={skill}
-                            active={"featured" in role && role.featured}
-                          >
+                          <Pill key={skill}>
                             {skill}
                           </Pill>
                         ))}
@@ -596,6 +616,11 @@ export default function ResumePage() {
             </h3>
             <p className="mt-2 text-sm leading-6 text-muted">{text.degree}</p>
             <p className="mt-1 text-sm text-muted">{text.educationPeriod}</p>
+            <ul className="mt-4 list-disc space-y-2 border-t border-border pt-4 pl-5 text-sm leading-6 text-muted">
+              {text.qualifications.map((qualification) => (
+                <li key={qualification}>{qualification}</li>
+              ))}
+            </ul>
           </div>
         </section>
 
